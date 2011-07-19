@@ -5,6 +5,8 @@ class Orm extends CI_Model{
 	public $table;
 	public $fields;
 	public $object;
+	public $belongs_to;
+	public $has_many;
 	
 	public function __construct()
 	{
@@ -15,15 +17,41 @@ class Orm extends CI_Model{
 	
 	public function all($order_by = array())
 	{
-		if ( count($order_by) > 0 )
+		if ( count($this->belongs_to) > 0)
 		{
-			foreach($order_by as $column => $direction)
+			$this->db->select($this->table.'.*');
+			$this->db->from($this->table);
+			foreach($this->belongs_to as $model)
 			{
-				$this->db->order_by($column, $direction);
+				$model = plural($model);
+				$model_fields = array_slice($this->db->list_fields($model), 1);
+				$this->db->select($model_fields);
+				$this->db->join($model, $model.'.id = '. $this->table.'.'. singular($model) .'_id', 'left');
 			}
+			
+			if ( count($order_by) > 0 )
+			{
+				foreach($order_by as $column => $direction)
+				{
+					$this->db->order_by($column, $direction);
+				}
+			}
+			$result = $this->db->get();
+			$this->object = $result->result();
 		}
-		$result = $this->db->get($this->table);
-		$this->object = $result->result();
+		else
+		{
+			if ( count($order_by) > 0 )
+			{
+				foreach($order_by as $column => $direction)
+				{
+					$this->db->order_by($column, $direction);
+				}
+			}
+			$result = $this->db->get($this->table);
+			$this->object = $result->result();
+		}
+		
 		return $this->object;
 	}
 	

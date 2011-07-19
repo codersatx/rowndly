@@ -10,7 +10,7 @@ class Rownds extends Public_Controller{
 	
 	public function index()
 	{
-		$data['rownds'] =  $this->rownd->find_where(array('title'=>'a'));
+		$data['rownds'] =  $this->rownd->all();
 		$this->render($data);
 	}
 	
