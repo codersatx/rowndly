@@ -13,9 +13,10 @@ class Orm extends CI_Model{
 		parent::__construct();
 		$this->table = strtolower(plural(get_class($this)));
 		$this->fields = $this->db->list_fields($this->table);
+		$this->object = new stdClass;
 	}
 	
-	public function all($order_by = array())
+	public function all($order_by = array(), $conditions = array())
 	{
 		if ( count($this->belongs_to) > 0)
 		{
@@ -36,8 +37,26 @@ class Orm extends CI_Model{
 					$this->db->order_by($column, $direction);
 				}
 			}
+			
+			if (count($conditions) > 0)
+			{
+				foreach($conditions as $column => $value)
+				{
+					$this->db->where($column, $value);
+				}
+			}
+			
 			$result = $this->db->get();
-			$this->object = $result->result();
+			if ($result->num_rows() > 0)
+			{
+				$this->object->result = $result->result();
+				return $this->object;
+			}
+			else
+			{
+				return FALSE;
+			}
+			
 		}
 		else
 		{
@@ -49,55 +68,97 @@ class Orm extends CI_Model{
 				}
 			}
 			$result = $this->db->get($this->table);
-			$this->object = $result->result();
-		}
-		
-		return $this->object;
-	}
-	
-	public function find($id)
-	{
-		$this->db->where('id', $id);
-		$result = $this->db->get($this->table);
-		$this->object = $result->result();
-		return $this->object[0];
-	}
-	
-	public function find_where($conditions = array())
-	{
-		if ( count($conditions > 0))
-		{
-			foreach($conditions as $condition => $value)
+			if ($result->num_rows() > 0)
 			{
-				$this->db->where($condition, $value);
+				$this->object->result = $result->result();
+				return $this->object;
 			}
-		}
-		$result = $this->db->get($this->table);
-		$this->object = $result->result();
-		return $this->object;
-	}
-	
-	public function save()
-	{
-		$not_these = array('submit');
-		foreach($_POST as $key=>$val)
-		{
-			if ( ! in_array($key, $not_these))
+			else
 			{
-				$object->$key = $this->input->post($key);
+				return FALSE;
 			}
 		}
 		
+		
+	}
+	
+	public function find($id, $conditions = array())
+	{
+		
+		if ( count($this->belongs_to) > 0)
+		{
+			$this->db->select($this->table.'.*');
+			$this->db->from($this->table);
+			foreach($this->belongs_to as $model)
+			{
+				$model = plural($model);
+				$model_fields = array_slice($this->db->list_fields($model), 1);
+				$this->db->select($model_fields);
+				$this->db->join($model, $model.'.id = '. $this->table.'.'. singular($model) .'_id', 'left');
+			}
+			
+			if (count($conditions) > 0)
+			{
+				foreach($conditions as $column => $value)
+				{
+					$this->db->where($column, $value);
+				}
+			}
+			$this->db->where($this->table.'.id', $id);
+			$result = $this->db->get();
+			if ($result->num_rows() > 0)
+			{
+				$this->object->result = $result->result();
+				return $this->object;
+			}
+			else
+			{
+				return FALSE;
+			}
+			
+		}
+		else
+		{	
+			$this->db->where('id', $id);
+			$result = $this->db->get($this->table);
+			if ($result->num_rows() === 1)
+			{
+				$this->object->result = $result->row();
+				return $this->object;
+			}
+			else
+			{
+				return FALSE;
+			}
+		}
+	}
+	
+	public function find_max($column_name)
+	{
+		$this->db->select_max('sort_order');
+		$result = $this->db->get($this->table);
+		return $result->row_array();
+	}
+	
+	public function save($object)
+	{	
 		if (isset($object->id))
 		{
 			$this->db->where('id', $object->id);
-			$this->db->update($this->table, $object);
+			$result = $this->db->update($this->table, $object);
 		}
 		else
 		{
-			$this->db->insert($this->table, $object);
+			$result = $this->db->insert($this->table, $object);
 		}
 		
-		
+		return $result;
+	}
+	
+	
+	public function destroy($id)
+	{
+		$this->db->where('id', $id);
+		return $this->db->delete($this->table);
 	}
 }

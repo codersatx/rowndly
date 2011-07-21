@@ -56,6 +56,32 @@ class App{
 	    echo "</pre>";
 	    echo "</div>";
 	}
+	
+	public static function get_post_values()
+	{
+		$object = new stdClass;
+		$not_these = array('submit');
+		foreach($_POST as $key=>$val)
+		{
+			if ( ! in_array($key, $not_these))
+			{
+				$object->$key = self::$ci->input->post($key);
+			}
+		}
+		return $object;
+	}
+	
+	public static function set_flash($notice, $type = 'notice')
+	{
+		$flash = self::$ci->session->set_flashdata(array('notice'=>$notice, 'type'=>$type));
+		return $flash;
+	}
+	
+	public static function get_flash($key)
+	{
+		return self::$ci->session->flashdata($key);
+	}
+	
 }
 
 app::init();
