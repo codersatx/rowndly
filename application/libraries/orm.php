@@ -149,7 +149,8 @@ class Orm extends CI_Model{
 		}
 		else
 		{
-			$result = $this->db->insert($this->table, $object);
+			$this->db->insert($this->table, $object);
+			$result = $this->db->insert_id();
 		}
 		
 		return $result;

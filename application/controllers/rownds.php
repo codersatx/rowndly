@@ -32,13 +32,16 @@ class Rownds extends Public_Controller{
 	{
 		
 		$values = app::get_post_values();
-		$data = file_get_contents($values->url);
+		$values->url = prep_url($values->url);
+		
+		$data = @file_get_contents($values->url);
 		if( preg_match("#<title>(.+)<\/title>#iU", $data, $t))
 		{
 			$values->title = trim($t[1]);
 		} else {
 			$values->title = $values->url;
 		}
+	
 		
 		//app::debug(get_meta_tags($values->url));
 		//return;
@@ -47,15 +50,24 @@ class Rownds extends Public_Controller{
 		$order =$this->rownd->find_max('sort_order'); 
 		$order = (int) $order['sort_order'] + 1;
 		$values->sort_order = $order;
-		if ($this->rownd->save($values))
+		$result = $this->rownd->save($values);
+		if ($result > 0)
 		{
-			app::set_flash('Saved user');
-			redirect('rownds/index');
+			
+			$rownd = $this->rownd->find($result);
+			$rownd = $rownd->result[0];
+				$delete = anchor('/rownds/destroy/'. $rownd->id, '<img src="/assets/images/minus.png" alt="Delete Rownd"/>', array('class'=>'delete-link','rel'=>$rownd->id));
+			echo '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
+			echo anchor($rownd->url, character_limiter($rownd->title, 70));
+			echo app::div($rownd->url, array('class'=>'rownd-url'));
+			echo $delete .'</li>';
+			
+			
 		}
 		else
 		{
-			app::set_flash('There was an error saving this user.','error');
-			redirect('rownds/create');
+			//app::set_flash('There was an error saving this user.','error');
+			//redirect('rownds/create');
 		}
 		
 	}
@@ -97,4 +109,5 @@ class Rownds extends Public_Controller{
 			}
 		}
 	}
+	
 }

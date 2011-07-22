@@ -14,7 +14,7 @@ class metatags {
         //get file contents
         $d = file_get_contents($url);
         //display error if site can't be loaded
-        if (!$d) {
+        if ( ! $d) {
             echo $this->error_invalid_url;
             exit();
         }
@@ -25,9 +25,9 @@ class metatags {
             //Processes rn's first so they aren't converted twice.
             $line = str_replace($linebreaks, '', $line);
             // This only works if the title and its tags are on one line
-            if (eregi ("(.*)", $line, $out)) {
-                $this->title = $out[1];
-            }
+            //if (eregi ("(.*)", $line, $out)) {
+                //$this->title = $out[1];
+            //}
         //get description
         $desc = get_meta_tags($url);
         $this->description = $desc['description'];   

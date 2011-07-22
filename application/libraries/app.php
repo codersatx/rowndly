@@ -82,6 +82,32 @@ class App{
 		return self::$ci->session->flashdata($key);
 	}
 	
+	public static function div($string, $attributes = array())
+	{
+		$out = '<div ';
+		$out .= self::parse_attributes($attributes);
+		$out .= '>'. $string .'</div>';
+		return $out;
+	}
+	
+	public static function span($string, $attributes = array())
+	{
+		$out = '<span ';
+		$out .= self::parse_attributes($attributes);
+		$out .= '>'. $string .'</span>';
+		return $out;
+	}
+	
+	public static function parse_attributes($attributes)
+	{
+		$out = '';
+		foreach($attributes as $key=>$value)
+		{
+			$out .= $key .'="'. $value .'" ';	
+		}
+		return $out;
+	}
+	
 }
 
 app::init();
