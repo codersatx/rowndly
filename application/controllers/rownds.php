@@ -110,4 +110,11 @@ class Rownds extends Public_Controller{
 		}
 	}
 	
+	public function post($url, $path)
+	{
+		$path = str_replace('--', '/', $path);
+		$data['url'] = $url . $path;
+		$this->render($data);
+	}
+	
 }

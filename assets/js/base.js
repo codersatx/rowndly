@@ -118,7 +118,8 @@ $(function() {
 		}, 'json');
 	});
 	
-	$('.edit-mode').click(function(){
+	$('.edit-mode').click(function(e){
+		e.preventDefault();
 		if ($(this).text() == 'Edit')
 		{
 			$(this).text('Done');
