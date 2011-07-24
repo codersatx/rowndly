@@ -2,15 +2,23 @@
 
 class Rownds extends Public_Controller{
 
+	public $user;
+
 	public function __construct()
 	{
 		parent::__construct();
 		$this->load->model('rownd');
+		$this->user = $this->session->userdata('user');
+		if ( ! $this->auth->is_logged_in())
+		{
+			redirect('users/login');
+		}
 	}
 	
 	public function index()
 	{
-		$rownds =  $this->rownd->all(array('sort_order'=>'asc'));
+		
+		$rownds =  $this->rownd->all(array('sort_order'=>'asc'), array('user_id'=>$this->user->id));
 		if ($rownds)
 		{
 			$data['rownds'] = $rownds->result;
@@ -30,10 +38,9 @@ class Rownds extends Public_Controller{
 	
 	public function create()
 	{
-		
-		$values = app::get_post_values();
-		$values->url = prep_url($values->url);
-		
+		$values = new stdClass();
+		$values->url = prep_url($this->input->post('url'));
+		$values->user_id = $this->user->id;
 		$data = @file_get_contents($values->url);
 		if( preg_match("#<title>(.+)<\/title>#iU", $data, $t))
 		{
@@ -41,11 +48,6 @@ class Rownds extends Public_Controller{
 		} else {
 			$values->title = $values->url;
 		}
-	
-		
-		//app::debug(get_meta_tags($values->url));
-		//return;
-		//$values->title = $this->metatags->get_title();
 
 		$order =$this->rownd->find_max('sort_order'); 
 		$order = (int) $order['sort_order'] + 1;
@@ -56,20 +58,20 @@ class Rownds extends Public_Controller{
 			
 			$rownd = $this->rownd->find($result);
 			$rownd = $rownd->result[0];
-				$delete = anchor('/rownds/destroy/'. $rownd->id, '<img src="/assets/images/minus.png" alt="Delete Rownd"/>', array('class'=>'delete-link','rel'=>$rownd->id));
+			
+			$edit = anchor('/rownds/edit/'. $rownd->id,
+				'<img src="/assets/images/pencil.png" alt="Edit Rownd"/>', 
+				array('class'=>'edit-link','rel'=>$rownd->id));
+			
+			$delete = anchor('/rownds/destroy/'. $rownd->id, 
+				'<img src="/assets/images/minus.png" alt="Delete Rownd"/>', 
+				array('class'=>'delete-link','rel'=>$rownd->id));
+				
 			echo '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
-			echo anchor($rownd->url, character_limiter($rownd->title, 70));
+			echo anchor($rownd->url, character_limiter($rownd->title, 70), array('target'=>'_blank'));
 			echo app::div($rownd->url, array('class'=>'rownd-url'));
-			echo $delete .'</li>';
-			
-			
+			echo $edit . $delete .'</li>';	
 		}
-		else
-		{
-			//app::set_flash('There was an error saving this user.','error');
-			//redirect('rownds/create');
-		}
-		
 	}
 	
 	public function edit($id)
@@ -80,16 +82,14 @@ class Rownds extends Public_Controller{
 	
 	public function update()
 	{
-		$values = app::get_post_values();
+		$values = new stdClass;
+		$values->id = $this->input->post('inline-id');
+		$values->title = $this->input->post('inline-title');
+		$values->url = $this->input->post('inline-url');
+		
 		if ($this->rownd->save($values))
 		{
-			app::set_flash('Updated user');
-			redirect('rownds/index');
-		}
-		else
-		{
-			app::set_flash('There was an error saving this user.','error');
-			redirect('rownds/edit/'. $values->id);
+			echo json_encode(array('id'=>$values->id, 'title'=> $values->title, 'url'=>$values->url));
 		}
 	}
 	

@@ -57,13 +57,13 @@ class App{
 	    echo "</div>";
 	}
 	
-	public static function get_post_values()
+	public static function get_post_values($skip = array())
 	{
 		$object = new stdClass;
 		$not_these = array('submit');
 		foreach($_POST as $key=>$val)
 		{
-			if ( ! in_array($key, $not_these))
+			if ( ! in_array($key, $not_these) && ! in_array($key, $skip))
 			{
 				$object->$key = self::$ci->input->post($key);
 			}
@@ -108,6 +108,25 @@ class App{
 		return $out;
 	}
 	
+	public static function is_post()
+	{
+	   	$method = $_SERVER['REQUEST_METHOD'];
+        if ($method == 'POST')
+        {
+            return TRUE;
+        }
+        return FALSE;
+	}
+	
+	public static function div_open($attributes = array())
+	{
+		return '<div '. self::parse_attributes($attributes) .'>';
+	}
+	
+	public static function div_close()
+	{
+		return '</div>';
+	}
 }
 
 app::init();

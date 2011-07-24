@@ -82,7 +82,7 @@ class Orm extends CI_Model{
 		
 	}
 	
-	public function find($id, $conditions = array())
+	public function find($id, $conditions = array(), $order_by = array())
 	{
 		
 		if ( count($this->belongs_to) > 0)
@@ -104,6 +104,15 @@ class Orm extends CI_Model{
 					$this->db->where($column, $value);
 				}
 			}
+			
+			if ( count($order_by) > 0 )
+			{
+				foreach($order_by as $column => $direction)
+				{
+					$this->db->order_by($column, $direction);
+				}
+			}
+			
 			$this->db->where($this->table.'.id', $id);
 			$result = $this->db->get();
 			if ($result->num_rows() > 0)

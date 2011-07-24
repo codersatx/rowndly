@@ -3,7 +3,9 @@ php_value display_startup_errors 1
 
 <IfModule mod_rewrite.c>
     RewriteEngine On
-    #RewriteBase /
+    #RewriteBase / 
+	RewriteCond %{HTTP_HOST} ^www.rowndly.com$ [NC]
+	RewriteRule ^(.*)$ http://rowndly.com/$1 [R=301,L]
 
     #Removes access to the system folder by users.
     #Additionally this will allow you to create a System.php controller,

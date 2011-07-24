@@ -1,0 +1,270 @@
+body
+{
+	font: 12px "Lucida Sans", Arial;
+	background:#00040f url(i/bg.jpg) repeat-x 0 0;
+	overflow-x:hidden;
+}
+
+#message
+{
+	background-color:#f2f2f2;
+	padding:8px;
+	font-size:18px;
+	display:none;
+	position:absolute;
+	top:0;
+	left:0;
+	width:100%;
+	text-align:center;
+}
+
+#message.success
+{
+	background-color:#e8febe;
+	color:#4d7304;
+}
+
+#message.error
+{
+	background-color:#fdcfdb;
+	color:#c35370;
+}
+
+#header
+{
+	width:740px;
+	margin:30px auto 20px;
+}
+
+#logo-wrapper
+{
+	float:left;
+}
+
+#account-wrapper
+{
+	float:right;
+	color:#fff;
+	text-align:right;
+	text-shadow:0 1px #0e5a74;
+}
+
+#account-wrapper a
+{
+	color:#68c1de;
+	text-decoration:none;
+	background-color:#16708e;
+	padding:6px;
+	border-radius:4px;
+	font-size:10px;
+	margin-left:2px;
+	text-shadow:0 1px #0e5a74;
+}
+
+#account-wrapper a:hover
+{
+	color:#fff;
+}
+
+
+.clearfix
+{
+	clear:both;
+}
+
+#sortable 
+{ 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#sortable li
+{ 
+	text-align:left;
+	margin: 0;
+	padding: 10px 0 10px 15px; 
+	font-size: 1.2em; 
+	clear:both;
+	border-bottom: 1px dotted #ccc;
+	position:relative;
+}
+
+#sortable li:hover
+{
+	background:transparent url(i/icon_sortable.png) no-repeat 0px 15px;
+	cursor:move;
+}
+
+a
+{
+	color:#72a441;
+}
+
+.ui-state-highlight 
+{
+	background-color:#f2f2f2;
+	border:1px solid #ccc !important;
+}
+
+.delete-link
+{
+	position:absolute;
+	top:15px;
+	right:0;
+	display:none;
+}
+
+.edit-link
+{
+	position:absolute;
+	top:15px;
+	right:20px;
+	display:none;
+}
+
+input#url
+{
+	font-size:24px;
+	width:585px;
+	border:1px solid #7aafc3;
+	background-color:#d5f0f6;
+	color:#7aafc3;
+	font-style:italic;
+	padding:6px;
+	outline:none;
+	
+}
+
+.loader
+{
+	display:none;
+	position:absolute;
+	top: 15px;
+	right: 129px;
+}
+
+#sortable li.empty
+{
+	display:none;
+}
+
+.rownd-url
+{
+	font-size:10px;
+	color:#999;
+}
+#wrapper
+{
+	width:740px;
+	margin:auto;
+}
+
+#content-left
+{
+	width:700px;
+	margin:auto;
+	padding:30px 20px;
+	background:#fff;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-box-shadow: 0 0 5px #135f79;
+	-webkit-box-shadow: 0 0 5px #135f79;
+	box-shadow: 0 0 5px #135f79;
+}
+
+#content-right
+{
+	width:200px;
+	padding:20px;
+	float:right;
+	border-radius:6px;
+	-moz-border-radius:6px;
+	-webkit-border-radius:6px;
+	-moz-box-shadow: 0 0 5px #135f79;
+	-webkit-box-shadow: 0 0 5px #135f79;
+	box-shadow: 0 0 5px #135f79;
+	background:#fff;
+}
+
+
+#add-rownd
+{
+	background-color:#1b83af;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1b83af), to(#025688));
+	background: -moz-linear-gradient(center top , #1b83af 0pt, #025688 100%) repeat scroll 0 0 transparent;
+	border-color: initial;
+	border: 0px #3F733C;
+	color: #8cd8ef;
+	font-size: 15px;
+	margin-right: 12px;
+	padding: 12px 15px;
+	text-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 0px;
+	-webkit-border-radius:0 4px 4px 0;
+	-moz-border-radius:0 4px 4px 0;
+	border-radius:0 4px 4px 0;
+	text-transform:uppercase;
+	cursor:pointer;
+	position:absolute;
+	top:0;
+	right:-15px;
+}
+
+#form
+{
+	position:relative;
+	margin-bottom:20px;
+}
+
+input#url.in-focus
+{
+	color:#000;
+	font-style:normal;
+}
+
+
+.inline-form
+{
+	display:none;
+}
+
+.inline-title, .inline-url
+{
+	border:1px solid #7aafc3;
+	background-color:#d5f0f6;
+	width:260px;
+	padding:6px;
+	font-size:14px;
+}
+
+.inline-submit, .like-button
+{
+	background-color:#1b83af;
+    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1b83af), to(#025688));
+    background: -moz-linear-gradient(center top , #1b83af 0pt, #025688 100%) repeat scroll 0 0 transparent;
+    border-color: initial;
+    border: 0px #3F733C;
+    color: #8cd8ef;
+    font-size: 12px;
+    margin-right: 12px;
+    padding: 8px 10px;
+    text-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 0px;
+    -webkit-border-radius:4px;
+    -moz-border-radius:4px ;
+    border-radius:4px;
+    text-transform:uppercase;
+    cursor:pointer;
+	position:absolute;
+	top:9px;
+	right:68px;
+}
+
+.like-button
+{
+	position:static;
+	text-decoration:none;
+	float:right;
+	font-size:10px;
+	margin:0;
+}
