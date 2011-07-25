@@ -11,6 +11,8 @@ class Rownds extends Public_Controller{
 		$this->user = $this->session->userdata('user');
 		if ( ! $this->auth->is_logged_in())
 		{
+			session_start();
+			$_SESSION['requested_url'] = app::get_current_url();
 			redirect('users/login');
 		}
 	}

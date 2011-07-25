@@ -127,6 +127,12 @@ class App{
 	{
 		return '</div>';
 	}
+	
+	public static function get_current_url()
+	{
+		$out = "http://". $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
+	 	return $out;
+	}
 }
 
 app::init();

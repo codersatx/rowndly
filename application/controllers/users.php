@@ -15,12 +15,14 @@ class Users extends Public_Controller{
 			$result = $this->auth->login($username, $password);
 			if ($result == TRUE)
 			{
-				echo 'OK';
+				session_start();
+				$redirect = $_SESSION['requested_url'];
+				echo json_encode(array('status'=>'OK','redirect'=>$redirect));
 				return;
 			}
 			else
 			{
-				echo 'NOT OK';
+				echo json_encode(array('status'=>'NOT OK'));
 				return;
 			}
 		}
@@ -53,6 +55,7 @@ class Users extends Public_Controller{
 			{
 				$this->user->save($values);
 				redirect('users/login');
+				
 			}
 			else
 			{

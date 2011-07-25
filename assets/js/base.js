@@ -137,15 +137,15 @@ $(function() {
 		e.preventDefault();
 		var str = $('#login-form').serialize();
 		$.post('/users/login', str, function(data){
-			if (data == 'OK')
+			if (data.status == 'OK')
 			{
-				window.location = '/rownds';
+				window.location = data.redirect;
 			}
 			else
 			{
 				show_message('Sorry, login failed fool','error');
 			}
-		});
+		}, 'json');
 	});
 	
 	function show_message(message, type)
