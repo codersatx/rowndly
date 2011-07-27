@@ -148,6 +148,14 @@ $(function() {
 		}, 'json');
 	});
 	
+	$('.rownd-link').click(function(){
+		var id = $(this).attr('rel');
+		var str  = '';
+		$.post('/rownds/track/'+id, str, function(data){
+			$('#last_visited_for_'+id).text(data.last_visited);
+		}, 'json');
+	});
+	
 	function show_message(message, type)
 	{
 		$('#message').text(message);

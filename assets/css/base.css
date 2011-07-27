@@ -149,7 +149,7 @@ input#url
 	display:none;
 }
 
-.rownd-url
+.rownd-url, .last-visited
 {
 	font-size:10px;
 	color:#999;

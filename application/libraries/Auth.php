@@ -19,7 +19,6 @@ class Auth{
 		{
 			$user = $result->row();
 			unset($user->password);
-			unset($user->username);
 			$this->ci->session->set_userdata(array('user'=>$user));
 			//app::debug($this->ci->session->userdata('user'));
 			return TRUE;

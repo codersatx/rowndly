@@ -119,4 +119,12 @@ class Rownds extends Public_Controller{
 		$this->render($data);
 	}
 	
+	public function track($id)
+	{
+		$rownd = new stdClass();
+		$rownd->id = $id;
+		$rownd->last_visited = date('Y-m-d H:i:s');
+		$this->rownd->save($rownd);
+		echo json_encode(array('last_visited'=>'Last Rownd: '. date("m/d/Y @ h:i a", strtotime($rownd->last_visited))));
+	}
 }
