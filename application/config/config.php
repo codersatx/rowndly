@@ -16,7 +16,6 @@
 */
 $base_url = getenv('HTTP_HOST');
 $config['base_url']	= 'http://'. $base_url .'/';
-
 /*
 |--------------------------------------------------------------------------
 | Index File

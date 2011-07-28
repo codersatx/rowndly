@@ -268,3 +268,12 @@ input#url.in-focus
 	font-size:10px;
 	margin:0;
 }
+
+#footer
+{
+	width:750px;
+	margin:auto;
+	padding:20px 0;
+	text-align:center;
+	color:#fff;
+}
