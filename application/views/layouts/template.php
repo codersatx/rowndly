@@ -10,7 +10,7 @@
 	<div id="message"></div>
 	<div id="header">
 		<div id="logo-wrapper">
-			<img src="/assets/images/rowndly-logo-small.jpg" alt="rowndly" id="logo"/>
+			<a href="/"><img src="/assets/images/rowndly-logo-small.jpg" alt="rowndly" id="logo"/></a>
 		</div>
 		<div id="account-wrapper">
 			<?php if ($this->auth->is_logged_in()):?>

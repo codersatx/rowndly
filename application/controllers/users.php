@@ -30,6 +30,10 @@ class Users extends Public_Controller{
 			{
 				session_start();
 				$redirect = $_SESSION['requested_url'];
+				if ($redirect == '/users/login')
+				{
+					$redirect = '/rownds';
+				}
 				echo json_encode(array('status'=>'OK','redirect'=>$redirect));
 				return;
 			}

@@ -1,57 +1,42 @@
-set :domain,    "rowndly.com" 
-set :user,      "rowndly" 
-set :password,  "corner"
+ # What is the name of the local application?
+set :application, "staging.rowndly.com"
  
-# Your git repository
-set :repository, "git@git.assembla.com:rowndly.git" 
+# What user is connecting to the remote server?
+set :user, "rowndly"
  
-server "#{domain}", :web, :primary => true 
+# Where is the local repository?
+set :repository,  "git@git.assembla.com:rowndly.git"
  
+# What is the production server domain?
+role :web, "staging.rowndly.com"
+ 
+# What remote directory hosts the production website?
+set :deploy_to,   "/httpdocs"
+ 
+# Is sudo required to manipulate files on the remote server?
+set :use_sudo, false
+  
+# What version control solution does the project use?
+set :scm,        :git
+set :branch,     'master'
+
+# How are the project files being transferred?
 set :deploy_via, :copy
-set :copy_exclude, [".git", ".DS_Store"] 
-set :scm, :git
-set :branch, "master" 
-# set this path to be correct on your server
-set :deploy_to, "/httpdocs"
-set :use_sudo, false 
-set :keep_releases, 5 
-set :git_shallow_clone, 1 
  
-ssh_options[:paranoid] = false 
+# Maintain a local repository cache. Speeds up the copy process.
+set :copy_cache, true
  
-# this tells capistrano what to do when you deploy
-namespace :deploy do 
- 
-  desc <<-DESC
-  A macro-task that updates the code and fixes the symlink. 
-  DESC
-  task :default do 
-    transaction do 
-      update_code
-      make_writeable
-      symlink
-      symlink_config
-    end
-  end
- 
-  task :update_code, :except => { :no_release => true } do 
-    on_rollback { run "rm -rf #{release_path}; true" } 
-    strategy.deploy! 
-  end
- 
-  # Link up your specific database config file under your shared path
-  task :symlink_config, :except => { :no_release => true } do
-    run "ln -nsf #{shared_path}/application/config/database.php #{current_release}/application/config"
-  end
- 
-  task :after_deploy do
-    cleanup
-  end
+# Ignore any local files?
+set :copy_exclude, %w(.git)
   
-  # If using caching and if you want to see the logs - make those dirs writeable!
-  task :make_writeable, :except => { :no_release => true } do
-    run "chmod -R 777 #{current_release}/system/cache"
-    run "chmod -R 777 #{current_release}/system/logs"
-  end
-  
+# This task symlinks the proper .htaccess file to ensure the 
+# production server's APPLICATION_ENV var is set to production
+task :create_symlinks, :roles => :web do
+   run "rm #{current_release}/public/.htaccess"
+   run "ln -s #{current_release}/production/.htaccess 
+              #{current_release}/public/.htaccess"
 end
+  
+# After deployment has successfully completed
+# create the .htaccess symlink
+after "deploy:finalize_update", :create_symlinks
