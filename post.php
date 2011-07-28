@@ -5,5 +5,6 @@ $url = parse_url($url);
 $host = $url['host'];
 $path = str_replace('/', '--', $url['path']);
 
+
 header('Location: /rownds/post/'.$host.'/'.$path);
 
