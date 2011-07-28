@@ -38,7 +38,15 @@
 | the active record class
 */
 
-$active_group = 'default';
+if (getenv('HTTP_HOST') == 'rowndly.local')
+{
+	$active_group = 'default';
+}
+else
+{
+	$active_group = 'production';
+}
+
 $active_record = TRUE;
 
 $db['default']['hostname'] = 'localhost';
