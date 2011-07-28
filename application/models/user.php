@@ -18,4 +18,22 @@ class User extends Orm{
 		}
 		return FALSE;
 	}
+	
+	public function change_password($data)
+	{
+		$user = $this->session->userdata('user');
+		$current_password = sha1($data['current_password']);
+		$password = sha1($data['password']);
+		$user = $this->find($user->id);
+		if (is_object($user))
+		{
+			$user = $user->result;
+			if ($current_password == $user->password)
+			{
+				$this->db->where('id', $user->id);
+				return $this->db->update('users', array('password'=>$password));
+			}
+		}
+		return FALSE;
+	}
 }

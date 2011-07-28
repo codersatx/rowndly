@@ -9,12 +9,7 @@ class Rownds extends Public_Controller{
 		parent::__construct();
 		$this->load->model('rownd');
 		$this->user = $this->session->userdata('user');
-		if ( ! $this->auth->is_logged_in())
-		{
-			session_start();
-			$_SESSION['requested_url'] = app::get_current_url();
-			redirect('users/login');
-		}
+		app::requires_login();
 	}
 	
 	public function index()

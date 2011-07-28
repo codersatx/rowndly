@@ -133,6 +133,16 @@ class App{
 		$out = "http://". $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 	 	return $out;
 	}
+	
+	public static function requires_login()
+	{
+		if ( ! self::$ci->auth->is_logged_in())
+		{
+			session_start();
+			$_SESSION['requested_url'] = self::get_current_url();
+			redirect('users/login');
+		}
+	}
 }
 
 app::init();

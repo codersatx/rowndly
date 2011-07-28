@@ -17,7 +17,7 @@ class Add_is_admin extends Migration{
 	{
 		if (field_exists('is_admin', 'users'))
 		{
-			drop_columns($fields, 'users');
+			drop_columns('is_admin', 'users');
 			return 'The is_admin field dropped.';
 		}
 		return 'The is_admin field does not exist.';

@@ -30,3 +30,13 @@ function add_columns($fields, $table)
 	}
 	return FALSE;
 }
+
+function drop_columns($fields, $table)
+{
+	$migration = new Migration();
+	if ($migration->ci->dbforge->drop_column($table, $fields))
+	{
+		return TRUE;
+	}
+	return FALSE;
+}

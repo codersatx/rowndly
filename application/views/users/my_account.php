@@ -2,6 +2,7 @@
 
 
 <?php
+echo app::get_flash('notice');
 
 if (isset($custom_error_message))
 {
@@ -37,6 +38,13 @@ echo app::div_open(array('class'=>'form-row'));
 	echo form_label('Password');
 	echo anchor('users/change_password','Change Password');
 echo app::div_close();
+
+echo app::div_open(array('class'=>'form-row'));
+	echo form_label('Public Profile');
+	echo form_checkbox(array('name'=>'allow_public', 'value'=>'1', 'checked'=>$user->allow_public));
+	echo app::div('Allow others to see your rownds.', array('class'=>'input-description'));
+echo app::div_close();
+
 
 echo app::div_open(array('class'=>'form-row'));
 	echo form_submit('submit','Save');
