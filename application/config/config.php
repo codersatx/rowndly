@@ -14,7 +14,7 @@
 | path to your installation.
 |
 */
-$config['base_url']	= 'http://rowndly.local';
+$config['base_url']	= 'http://rowndly.com';
 
 /*
 |--------------------------------------------------------------------------
