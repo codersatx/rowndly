@@ -7,10 +7,10 @@ class Rownds extends Public_Controller{
 	public function __construct()
 	{
 		parent::__construct();
+		app::requires_login();
 		$this->load->model(array('rownd','user'));
 		$user_session = $this->session->userdata('user');
 		$this->user = $this->user->find($user_session->id)->result;
-		app::requires_login();
 	}
 	
 	public function index()
