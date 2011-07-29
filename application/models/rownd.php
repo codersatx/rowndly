@@ -13,5 +13,13 @@ class Rownd extends Orm{
 		$this->db->where('id',$id);
 		$this->db->update('rownds', array('sort_order'=>$position));
 	}
+	
+	public function find_by_user($user_id)
+	{
+		$this->db->select('title, url, last_visited');
+		$this->db->where('user_id', $user_id);
+		$result = $this->db->get('rownds');
+		return $result;
+	}
 
 }

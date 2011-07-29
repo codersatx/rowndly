@@ -1,4 +1,22 @@
 <?php
+
+if (! $allow_public)
+{
+	echo '<ul id="syndication-options">';
+		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'json', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'xml', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'rss', array('target'=>'_blank')) .'</li>';
+	echo '</ul>';
+}
+else
+{
+	echo '<ul id="syndication-options">';
+		echo '<li>'. anchor('/api/json/'. $user_id , 'json', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id, 'xml', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id, 'rss', array('target'=>'_blank')) .'</li>';
+	echo '</ul>';	
+}
+
 echo form_open('rownds/create', array('id'=>'form'));
 echo form_input(array('name'=>'url','id'=>'url', 'value'=>'enter a url'));
 echo form_submit('submit','Add Rownd', 'id="add-rownd"');

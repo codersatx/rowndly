@@ -45,6 +45,11 @@ echo app::div_open(array('class'=>'form-row'));
 	echo app::div('Allow others to see your rownds.', array('class'=>'input-description'));
 echo app::div_close();
 
+echo app::div_open(array('class'=>'form-row'));
+	echo form_label('Private Key');
+	echo form_input('private_key', $user->private_key);
+	echo app::div('To allow private access to your rownds via the api enter a private key.', array('class'=>'input-description'));
+echo app::div_close();
 
 echo app::div_open(array('class'=>'form-row'));
 	echo form_submit('submit','Save');

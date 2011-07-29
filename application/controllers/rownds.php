@@ -7,17 +7,20 @@ class Rownds extends Public_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('rownd');
-		$this->user = $this->session->userdata('user');
+		$this->load->model(array('rownd','user'));
+		$user_session = $this->session->userdata('user');
+		$this->user = $this->user->find($user_session->id)->result;
 		app::requires_login();
 	}
 	
 	public function index()
 	{
-		
 		$rownds =  $this->rownd->all(array('sort_order'=>'asc'), array('user_id'=>$this->user->id));
 		if ($rownds)
 		{
+			$data['allow_public'] = $this->user->allow_public;
+			$data['private_key'] = $this->user->private_key;
+			$data['user_id'] = $this->user->id;
 			$data['rownds'] = $rownds->result;
 			$this->render($data);
 		}

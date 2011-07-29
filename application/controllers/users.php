@@ -104,6 +104,7 @@ class Users extends Public_Controller{
 		$data['user'] = $this->user->find($user->id)->result;
 		$data['head_title'] = 'Register';
 		$this->form_validation->set_rules('first_name', 'First Name');
+		$this->form_validation->set_rules('private_key', 'Private Key');
 		$this->form_validation->set_rules('last_name', 'Last Name');
 		$this->form_validation->set_rules('email', 'Email', 'required|valid_email');
 		$this->form_validation->set_rules('username', 'Username', 'required|min_length[6]');
