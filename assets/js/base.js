@@ -160,8 +160,8 @@ $(function() {
 		if ($('#edit-options-wrapper').is(':visible'))
 		{
 			$(this).removeClass('edit-options-open');
-			$('.edit-rownds-link').text('Edit');
-			$('.edit-link, .delete-link').fadeOut('fast');
+			// $('.edit-rownds-link').text('Edit');
+			// 			$('.edit-link, .delete-link').fadeOut('fast');
 		}
 		else
 		{

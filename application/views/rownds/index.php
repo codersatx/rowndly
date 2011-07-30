@@ -29,9 +29,9 @@ echo app::div_close();
 echo app::div_open(array('id'=>'content-right'));
 if (isset($rownds) and is_array($rownds))
 {
-		echo anchor('#', img(array('src'=>'/assets/images/gear.png','class'=>'edit-options radius-4400')));
+		echo anchor('#', img(array('src'=>'/assets/images/gear.png','class'=>'edit-options')));
 		
-		echo app::div_open(array('id'=>'edit-options-wrapper','class'=>'radius-0044'));
+		echo app::div_open(array('id'=>'edit-options-wrapper'));
 			echo '<ul>';
 			echo '<li><a href="" class="edit-rownds-link">Edit</a></li>';
 			echo '</ul>';
