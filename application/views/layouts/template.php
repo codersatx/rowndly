@@ -11,12 +11,12 @@
 	
 	<div id="header">
 		<div id="logo-wrapper">
-			<a href="/">rowndly</a>
+			<a href="/"><img src="/assets/images/logo-small.gif" alt="rowndly"/></a>
 		</div>
 		<div id="account-wrapper">
 			<?php if ($this->auth->is_logged_in()):?>
-			<a href="/rownds">Rownds</a>  
-			<a href="/users/my_account">Account</a> 
+			<a href="/rownds">My Rownds</a>  
+			<a href="/users/my_account">My Account</a> 
 				<a href="javascript:javascript:(function(){var%20url%20=%20location.href;window.open('http://rowndly.com/post.php?url='%20+%20encodeURIComponent(url)%20+%20'&','_blank','location=0,menubar=no,height=300,width=800,toolbar=no,scrollbars=no,status=no');})();">Add To Rowndly</a>
 				<a href="/users/logout">Logout</a>
 			<?php else:?>
@@ -26,7 +26,9 @@
 	<div class="clearfix"></div>
 	</div>
 	
-	<div id="wrapper">
+	<div id="title-wrapper"><h1><?php echo $user->first_name?>'s Rownds</h1></div>
+	
+	<div id="wrapper" class="radius-4444">
 		<?php echo $content?>
 	</div>
 	

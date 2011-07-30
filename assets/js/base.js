@@ -41,7 +41,7 @@ $(function() {
 		$(this).find('.delete-link, .edit-link').hide();
 	});
 	
-	$('#add-rownd').click(function(e){
+	$('#add-rownd-button').click(function(e){
 		e.preventDefault();
 	
 		$('.loader').show();
@@ -118,7 +118,7 @@ $(function() {
 		}, 'json');
 	});
 	
-	$('.edit-mode').click(function(e){
+	$('.edit-rownds-link').click(function(e){
 		e.preventDefault();
 		if ($(this).text() == 'Edit')
 		{

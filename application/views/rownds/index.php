@@ -1,35 +1,33 @@
 <?php
-echo app::div_open(array('id'=>'add-rownd-wrapper'));
-	echo form_open('rownds/create', array('id'=>'form'));
+echo app::div_open(array('id'=>'add-rownd-wrapper','class'=>'radius-4400'));
+	echo form_open('rownds/create', array('id'=>'form','class'=>'radius-4400'));
 	echo form_input(array('name'=>'url','id'=>'url', 'value'=>'enter a url'));
-	echo form_submit('submit','Add Rownd', 'id="add-rownd"');
+	echo form_submit('submit','Add Rownd', 'id="add-rownd-button"');
 	echo app::div('<img src="/assets/images/loader.gif" alt="loader"/>', array('class'=>'loader'));
 	echo form_close();
 echo app::div_close();
 
 echo app::div_open(array('id'=>'content-left'));
+	echo '<ul id="syndication-options">';
+	echo '<li>'. anchor('#','Edit', array('class'=>'edit-rownds-link')) .'</li>';
 	if (! $allow_public)
 	{
-		echo '<ul id="syndication-options">';
-			echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'json', array('target'=>'_blank')) .'</li>';
-			echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'xml', array('target'=>'_blank')) .'</li>';
-			echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'rss', array('target'=>'_blank')) .'</li>';
-		echo '</ul>';
+		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'Json', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'Xml', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'Rss', array('target'=>'_blank')) .'</li>';
 	}
 	else
-	{
-		echo '<ul id="syndication-options">';
-			echo '<li>'. anchor('/api/json/'. $user_id , 'json', array('target'=>'_blank')) .'</li>';
-			echo '<li>'. anchor('/api/xml/'. $user_id, 'xml', array('target'=>'_blank')) .'</li>';
-			echo '<li>'. anchor('/api/rss/'. $user_id, 'rss', array('target'=>'_blank')) .'</li>';
-		echo '</ul>';	
+	{		
+		echo '<li>'. anchor('/api/json/'. $user_id , 'json', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id, 'xml', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id, 'rss', array('target'=>'_blank')) .'</li>';	
 	}
+	echo '</ul>';
 echo app::div_close();
 
 echo app::div_open(array('id'=>'content-right'));
 if (isset($rownds) and is_array($rownds))
 {
-		echo anchor('#','Edit', array('class'=>'edit-mode like-button'));
 		echo '<ul id="sortable">';
 		echo '<li class="empty"></li>';
 		foreach($rownds as $rownd)

@@ -3,8 +3,8 @@ Body and General
 ****************************************************/
 body
 {
-	font: 12px "Lucida Sans", Arial;
-	background:#666;
+	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
+	background:#333;
 	overflow-x:hidden;
 	margin:0;
 	padding:0;
@@ -17,7 +17,21 @@ body
 
 a
 {
-	color:#72a441;
+	color:#000;
+}
+
+.radius-4444
+{
+	border-radius:4px;
+	-moz-border-radius:4px;
+	-webkit-border-radius:4px;
+}
+
+.radius-4400
+{
+	border-radius:4px 4px 0 0;
+	-moz-border-radius:4px 4px 0 0;
+	-webkit-border-radius:4px 4px 0 0;
 }
 
 /***************************************************
@@ -57,15 +71,23 @@ Header
 #header
 {
 	margin:0 0 20px 0;
-	padding:10px;
-	background-color:#333;
+	background-color:#000;
 	color:#fff;
+	height:50px;
+	line-height:50px;
+	padding:0 10px;
+}
+
+#header img
+{
+	margin-top:12px;
 }
 
 #header a
 {
 	text-decoration:none;
 	color:#fff;
+	padding-right:5px;
 }
 
 #logo-wrapper
@@ -81,7 +103,7 @@ Header
 
 #account-wrapper a
 {
-	color:#ccc;
+	color:#888;
 	font-size:10px;
 	margin-left:2px;
 }
@@ -92,6 +114,26 @@ Header
 }
 
 /***************************************************
+Title Wrapper
+****************************************************/
+
+#title-wrapper
+{
+	width:960px;
+	margin:auto;
+
+}
+
+#title-wrapper h1
+{
+	color:#fff;
+	font-weight:normal;
+	font-family:"Helvetica Neue", Helvetica, Arial, sans-serif;
+	font-size:20px;
+	margin-bottom:21px;
+}
+
+/***************************************************
 Wrapper
 ****************************************************/
 
@@ -99,10 +141,7 @@ Wrapper
 {
 	width:960px;
 	margin:auto;
-	background:#fff;
-	border-radius:2px;
-	-moz-border-radius:2px;
-	-webkit-border-radius:2px;
+	background:#fff url(i/bg-wrapper.gif) repeat-y 0 0;
 }
 
 /***************************************************
@@ -111,41 +150,40 @@ Add Rownd Form
 
 #add-rownd-wrapper
 {
-	background-color:#e4e4e4;
+	background:#e4e4e4 url(i/bg-add-rownd-wrapper.gif) repeat-x 0 0;
 	padding:20px;
 }
 
 input#url
 {
 	font-size:24px;
-	width:585px;
-	border:1px solid #ccc;
+	width:815px;
+	border:1px solid #bbb;
 	color:#ccc;
 	font-style:italic;
 	padding:6px;
-	outline:none;	
+	outline:none;
+	-webkit-border-radius:4px 0px 0px 4px;
+	-moz-border-radius:4px 0px 0px 4px;
+	border-radius:4px 0px 0px 4px;
 }
 
-#add-rownd
+#add-rownd-button
 {
-	background-color:#1b83af;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1b83af), to(#025688));
-	background: -moz-linear-gradient(center top , #1b83af 0pt, #025688 100%) repeat scroll 0 0 transparent;
-	border-color: initial;
-	border: 0px #3F733C;
-	color: #8cd8ef;
-	font-size: 15px;
+	background-color:#666;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
+	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border:1px solid #333;
+	color: #fff;
 	margin-right: 12px;
-	padding: 12px 15px;
-	text-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 0px;
+	padding: 13px 15px;
 	-webkit-border-radius:0 4px 4px 0;
 	-moz-border-radius:0 4px 4px 0;
 	border-radius:0 4px 4px 0;
-	text-transform:uppercase;
 	cursor:pointer;
 	position:absolute;
-	top:0;
-	right:-15px;
+	top:0.9px;
+	right:-12px;
 }
 
 .loader
@@ -174,14 +212,15 @@ Content
 #content-left
 {
 	width:200px;
-	background-color:#ccc;
 	float:left;
 }
 
 #content-right
 {
-	width:760px;
+	width:720px;
 	float:right;
+	padding:20px;
+	position:relative;
 }
 
 /***************************************************
@@ -191,7 +230,7 @@ Rownds
 #sortable
 { 
 	list-style-type: none; 
-	margin: 0; 
+	margin: 0 0 10px; 
 	padding: 0;
 }
 
@@ -200,7 +239,7 @@ Rownds
 	text-align:left;
 	margin: 0;
 	padding: 10px 0 10px 15px; 
-	font-size: 1.2em; 
+	font-size: 20px; 
 	clear:both;
 	border-bottom: 1px dotted #ccc;
 	position:relative;
@@ -211,6 +250,12 @@ Rownds
 	background:transparent url(i/icon_sortable.png) no-repeat 0px 15px;
 	cursor:move;
 }
+
+#sortable a
+{
+	text-decoration:none;
+}
+
 
 .ui-state-highlight 
 {
@@ -266,15 +311,6 @@ Rownds
 	right:68px;
 }
 
-.like-button
-{
-	position:static;
-	text-decoration:none;
-	float:right;
-	font-size:10px;
-	margin:0;
-}
-
 .delete-link
 {
 	position:absolute;
@@ -297,9 +333,10 @@ Footer
 
 #footer
 {
-	width:750px;
+	width:960px;
 	margin:auto;
 	padding:20px 0;
 	text-align:center;
-	color:#fff;
+	color:#666;
+	font-size:10px;
 }
