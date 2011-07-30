@@ -1,9 +1,28 @@
+/***************************************************
+Body and General
+****************************************************/
 body
 {
 	font: 12px "Lucida Sans", Arial;
-	background:#00040f url(i/bg.jpg) repeat-x 0 0;
+	background:#666;
 	overflow-x:hidden;
+	margin:0;
+	padding:0;
 }
+
+.clearfix
+{
+	clear:both;
+}
+
+a
+{
+	color:#72a441;
+}
+
+/***************************************************
+Message
+****************************************************/
 
 #message
 {
@@ -30,35 +49,41 @@ body
 	color:#c35370;
 }
 
+
+/***************************************************
+Header
+****************************************************/
+
 #header
 {
-	width:740px;
-	margin:30px auto 20px;
+	margin:0 0 20px 0;
+	padding:10px;
+	background-color:#333;
+	color:#fff;
+}
+
+#header a
+{
+	text-decoration:none;
+	color:#fff;
 }
 
 #logo-wrapper
 {
 	float:left;
+	font-weight:bold;
 }
 
 #account-wrapper
 {
 	float:right;
-	color:#fff;
-	text-align:right;
-	text-shadow:0 1px #0e5a74;
 }
 
 #account-wrapper a
 {
-	color:#68c1de;
-	text-decoration:none;
-	background-color:#16708e;
-	padding:6px;
-	border-radius:4px;
+	color:#ccc;
 	font-size:10px;
 	margin-left:2px;
-	text-shadow:0 1px #0e5a74;
 }
 
 #account-wrapper a:hover
@@ -66,128 +91,40 @@ body
 	color:#fff;
 }
 
+/***************************************************
+Wrapper
+****************************************************/
 
-.clearfix
+#wrapper
 {
-	clear:both;
+	width:960px;
+	margin:auto;
+	background:#fff;
+	border-radius:2px;
+	-moz-border-radius:2px;
+	-webkit-border-radius:2px;
 }
 
-#sortable 
-{ 
-	list-style-type: none; 
-	margin: 0; 
-	padding: 0;
-}
+/***************************************************
+Add Rownd Form
+****************************************************/
 
-#sortable li
-{ 
-	text-align:left;
-	margin: 0;
-	padding: 10px 0 10px 15px; 
-	font-size: 1.2em; 
-	clear:both;
-	border-bottom: 1px dotted #ccc;
-	position:relative;
-}
-
-#sortable li:hover
+#add-rownd-wrapper
 {
-	background:transparent url(i/icon_sortable.png) no-repeat 0px 15px;
-	cursor:move;
-}
-
-a
-{
-	color:#72a441;
-}
-
-.ui-state-highlight 
-{
-	background-color:#f2f2f2;
-	border:1px solid #ccc !important;
-}
-
-.delete-link
-{
-	position:absolute;
-	top:15px;
-	right:0;
-	display:none;
-}
-
-.edit-link
-{
-	position:absolute;
-	top:15px;
-	right:20px;
-	display:none;
+	background-color:#e4e4e4;
+	padding:20px;
 }
 
 input#url
 {
 	font-size:24px;
 	width:585px;
-	border:1px solid #7aafc3;
-	background-color:#d5f0f6;
-	color:#7aafc3;
+	border:1px solid #ccc;
+	color:#ccc;
 	font-style:italic;
 	padding:6px;
-	outline:none;
-	
+	outline:none;	
 }
-
-.loader
-{
-	display:none;
-	position:absolute;
-	top: 15px;
-	right: 129px;
-}
-
-#sortable li.empty
-{
-	display:none;
-}
-
-.rownd-url, .last-visited
-{
-	font-size:10px;
-	color:#999;
-}
-#wrapper
-{
-	width:740px;
-	margin:auto;
-}
-
-#content-left
-{
-	width:700px;
-	margin:auto;
-	padding:30px 20px;
-	background:#fff;
-	border-radius:6px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	-moz-box-shadow: 0 0 5px #135f79;
-	-webkit-box-shadow: 0 0 5px #135f79;
-	box-shadow: 0 0 5px #135f79;
-}
-
-#content-right
-{
-	width:200px;
-	padding:20px;
-	float:right;
-	border-radius:6px;
-	-moz-border-radius:6px;
-	-webkit-border-radius:6px;
-	-moz-box-shadow: 0 0 5px #135f79;
-	-webkit-box-shadow: 0 0 5px #135f79;
-	box-shadow: 0 0 5px #135f79;
-	background:#fff;
-}
-
 
 #add-rownd
 {
@@ -211,16 +148,85 @@ input#url
 	right:-15px;
 }
 
+.loader
+{
+	display:none;
+	position:absolute;
+	top: 15px;
+	right: 129px;
+}
+
 #form
 {
 	position:relative;
-	margin-bottom:20px;
 }
 
 input#url.in-focus
 {
 	color:#000;
 	font-style:normal;
+}
+
+/***************************************************
+Content
+****************************************************/
+
+#content-left
+{
+	width:200px;
+	background-color:#ccc;
+	float:left;
+}
+
+#content-right
+{
+	width:760px;
+	float:right;
+}
+
+/***************************************************
+Rownds
+****************************************************/
+
+#sortable
+{ 
+	list-style-type: none; 
+	margin: 0; 
+	padding: 0;
+}
+
+#sortable li
+{ 
+	text-align:left;
+	margin: 0;
+	padding: 10px 0 10px 15px; 
+	font-size: 1.2em; 
+	clear:both;
+	border-bottom: 1px dotted #ccc;
+	position:relative;
+}
+
+#sortable li:hover
+{
+	background:transparent url(i/icon_sortable.png) no-repeat 0px 15px;
+	cursor:move;
+}
+
+.ui-state-highlight 
+{
+	background-color:#f2f2f2;
+	border:1px solid #ccc !important;
+}
+
+#sortable li.empty
+{
+	display:none;
+}
+
+.rownd-url, .last-visited
+{
+	font-size:10px;
+	color:#999;
 }
 
 
@@ -268,6 +274,26 @@ input#url.in-focus
 	font-size:10px;
 	margin:0;
 }
+
+.delete-link
+{
+	position:absolute;
+	top:15px;
+	right:0;
+	display:none;
+}
+
+.edit-link
+{
+	position:absolute;
+	top:15px;
+	right:20px;
+	display:none;
+}
+
+/***************************************************
+Footer
+****************************************************/
 
 #footer
 {
