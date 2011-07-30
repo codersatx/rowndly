@@ -156,6 +156,21 @@ $(function() {
 		}, 'json');
 	});
 	
+	$('.edit-options').click(function(){
+		if ($('#edit-options-wrapper').is(':visible'))
+		{
+			$(this).removeClass('edit-options-open');
+			$('.edit-rownds-link').text('Edit');
+			$('.edit-link, .delete-link').fadeOut('fast');
+		}
+		else
+		{
+			$(this).addClass('edit-options-open');
+		}
+	
+		$('#edit-options-wrapper').slideToggle('fast');
+	});
+	
 	function show_message(message, type)
 	{
 		$('#message').text(message);

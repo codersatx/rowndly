@@ -34,6 +34,13 @@ a
 	-webkit-border-radius:4px 4px 0 0;
 }
 
+.radius-0044
+{
+	border-radius:0 0 4px 4px;
+	-moz-border-radius:0 0 4px 4px;
+	-webkit-border-radius:0 0 4px 4px;
+}
+
 /***************************************************
 Message
 ****************************************************/
@@ -208,6 +215,40 @@ input#url.in-focus
 {
 	color:#000;
 	font-style:normal;
+}
+
+.edit-options
+{
+	position:absolute;
+	top:10px;
+	right:15px;
+	padding:5px;
+	background-color:#fff;
+	z-index:5;
+	border:1px solid #fff;
+	border-bottom:none;
+	cursor:pointer;
+}
+
+.edit-options-open
+{
+	border-color:#ccc;
+	
+}
+
+#edit-options-wrapper
+{
+	padding:5px;
+	border:1px solid #ccc;
+	position:absolute;
+	top:40px;
+	right:15px;
+	width:150px;
+	font-size:10px;
+	background-color:#fff;
+	z-index:4;
+	display:none;
+	
 }
 
 /***************************************************
