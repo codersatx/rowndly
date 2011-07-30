@@ -18,6 +18,5 @@
 <script src="/assets/js/jquery-1.5.1.min.js"></script>
 <script src="/assets/js/jquery-ui-1.8.14.custom.min.js"></script>
 <script src="/assets/js/base.js"></script>
-
 </body>
 </html>
