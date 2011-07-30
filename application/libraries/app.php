@@ -179,7 +179,6 @@ class App{
 	        .$size."&amp;default="
 	        .$default);
 	}
-	
 }
 
 app::init();
