@@ -211,8 +211,9 @@ Content
 
 #content-left
 {
-	width:200px;
+	width:160px;
 	float:left;
+	padding:20px;
 }
 
 #content-right

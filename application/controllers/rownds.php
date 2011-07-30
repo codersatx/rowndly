@@ -12,6 +12,7 @@ class Rownds extends Public_Controller{
 		$user_session = $this->session->userdata('user');
 		$this->user = $this->user->find($user_session->id)->result;
 		$data['title'] = 'My Rownds';
+		$data['email'] = $this->user->email;
 		$this->load->vars($data);
 	}
 	

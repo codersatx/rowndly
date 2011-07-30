@@ -143,6 +143,43 @@ class App{
 			redirect('users/login');
 		}
 	}
+	
+	//--------------------------------------------------------------------------
+
+
+	/**
+	* CodeIgniter Gravatar Helper
+	*
+	* @package      CodeIgniter
+	* @subpackage   Helpers
+	* @category     Helpers
+	* @author       David Cassidy
+	*/
+
+	/**
+	* Gravatar
+	*
+	* Fetches a gravatar from the Gravatar website using the specified params
+	*
+	* @access  public
+	* @param   string
+	* @param   string
+	* @param   integer
+	* @param   string
+	* @return  string
+	*/
+	public static function gravatar( $email, $rating = 'X', $size = '80', $default = 'http://gravatar.com/avatar.php' ) {
+	    # Hash the email address
+	    $email = md5( $email );
+		self::$ci->load->helper('html');
+	    # Return the generated URL
+	    return img("http://gravatar.com/avatar.php?gravatar_id="
+	        .$email."&amp;rating="
+	        .$rating."&amp;size="
+	        .$size."&amp;default="
+	        .$default);
+	}
+	
 }
 
 app::init();

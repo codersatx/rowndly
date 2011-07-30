@@ -8,6 +8,7 @@ echo app::div_open(array('id'=>'add-rownd-wrapper','class'=>'radius-4400'));
 echo app::div_close();
 
 echo app::div_open(array('id'=>'content-left'));
+	echo app::gravatar($email);
 	echo '<ul id="syndication-options">';
 	echo '<li>'. anchor('#','Edit', array('class'=>'edit-rownds-link')) .'</li>';
 	if (! $allow_public)
