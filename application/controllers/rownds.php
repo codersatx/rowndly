@@ -11,6 +11,8 @@ class Rownds extends Public_Controller{
 		$this->load->model(array('rownd','user'));
 		$user_session = $this->session->userdata('user');
 		$this->user = $this->user->find($user_session->id)->result;
+		$data['title'] = 'My Rownds';
+		$this->load->vars($data);
 	}
 	
 	public function index()

@@ -8,6 +8,8 @@ class Users extends Public_Controller{
 		parent::__construct();
 		$this->load->model('user');
 		$this->form_validation->set_error_delimiters('<div class="account_form error">', '</div>');
+		$data['title'] = 'My Account';
+		$this->load->vars($data);
 	}
 	
 	//-----------------------------------------------------------------

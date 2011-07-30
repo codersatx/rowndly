@@ -26,7 +26,7 @@
 	<div class="clearfix"></div>
 	</div>
 	
-	<div id="title-wrapper"><h1><?php echo $user->first_name?>'s Rownds</h1></div>
+	<div id="title-wrapper"><h1><?php echo $title;?></h1></div>
 	
 	<div id="wrapper" class="radius-4444">
 		<?php echo $content?>
