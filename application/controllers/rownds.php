@@ -1,29 +1,22 @@
 <?php
-
-class Rownds extends Public_Controller{
-
-	public $user;
+class Rownds extends Auth_Controller{
 
 	public function __construct()
 	{
 		parent::__construct();
-		app::requires_login();
-		$this->load->model(array('rownd','user'));
-		$user_session = $this->session->userdata('user');
-		$this->user = $this->user->find($user_session->id)->result;
 		$data['title'] = 'My Rownds';
-		$data['email'] = $this->user->email;
+		$data['email'] = app::session('email');
+		$data['allow_public'] = app::session('allow_public');
+		$data['private_key'] = app::session('private_ley');
+		$data['user_id'] = app::session('id');
 		$this->load->vars($data);
 	}
 	
 	public function index()
 	{
-		$rownds =  $this->rownd->all(array('sort_order'=>'asc'), array('user_id'=>$this->user->id));
+		$rownds =  $this->rownd->all(array('sort_order'=>'asc'), array('user_id'=>app::session('id')));
 		if ($rownds)
 		{
-			$data['allow_public'] = $this->user->allow_public;
-			$data['private_key'] = $this->user->private_key;
-			$data['user_id'] = $this->user->id;
 			$data['rownds'] = $rownds->result;
 			$this->render($data);
 		}
@@ -31,34 +24,28 @@ class Rownds extends Public_Controller{
 		{
 			$this->render();
 		}
-	}
-	
-	public function view($id)
-	{
-		$data['rownd'] = $this->rownd->find($id);
-		app::debug($data);
+		
 	}
 	
 	public function create()
 	{
 		$values = new stdClass();
 		$values->url = prep_url($this->input->post('url'));
-		$values->user_id = $this->user->id;
-		$data = @file_get_contents($values->url);
-		if( preg_match("#<title>(.+)<\/title>#iU", $data, $t))
-		{
-			$values->title = trim($t[1]);
-		} else {
-			$values->title = $values->url;
-		}
-
-		$order =$this->rownd->find_max('sort_order'); 
+		$values->title = $values->url;
+		$values->user_id = app::session('id');
+		$order = $this->rownd->find_max('sort_order'); 
 		$order = (int) $order['sort_order'] + 1;
 		$values->sort_order = $order;
+		
+		$page_title = @file_get_contents($values->url);
+		if (preg_match("#<title>(.+)<\/title>#iU", $page_title, $title))
+		{
+			$values->title = trim($title[1]);
+		}
+
 		$result = $this->rownd->save($values);
 		if ($result > 0)
 		{
-			
 			$rownd = $this->rownd->find($result);
 			$rownd = $rownd->result[0];
 			
@@ -75,12 +62,6 @@ class Rownds extends Public_Controller{
 			echo app::div($rownd->url, array('class'=>'rownd-url'));
 			echo $edit . $delete .'</li>';	
 		}
-	}
-	
-	public function edit($id)
-	{
-		$data['rownd'] = $this->rownd->find($id)->result[0];
-		$this->render($data);
 	}
 	
 	public function update()

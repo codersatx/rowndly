@@ -1,4 +1,5 @@
 <?php
+
 echo form_open('users/login', array('id'=>'login-form'));
 echo form_label('Username');
 echo form_input('username');

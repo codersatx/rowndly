@@ -134,13 +134,18 @@ Title Wrapper
 }
 
 /***************************************************
-Wrapper
+Wrappers
 ****************************************************/
 
 #wrapper
 {
 	width:960px;
 	margin:auto;
+	background-color:#fff;
+}
+
+.two-column-wrapper
+{
 	background:#fff url(i/bg-wrapper.gif) repeat-y 0 0;
 }
 

@@ -1,0 +1,43 @@
+body
+{
+	margin:100px 0 0 0;
+}
+
+#wrapper
+{
+	width:400px;
+	background-color:#e4e4e4;
+}
+
+#logo
+{
+	padding:15px;
+	background-color:#000;
+	text-align:center;
+}
+
+#login-form
+{
+	padding:15px;
+}
+
+label
+{
+	display:block;
+	margin-bottom:5px;
+	font-size:14px;
+}
+
+input
+{
+	display:block;
+}
+
+input[type=text], input[type=password]
+{
+	border:1px solid #ccc;
+	width:350px;
+	padding:10px;
+	margin-bottom:10px;
+}
+

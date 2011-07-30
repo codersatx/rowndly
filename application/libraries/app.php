@@ -168,6 +168,11 @@ class App{
 	        .$size."&amp;default="
 	        .$default);
 	}
+	
+	public static function session($key)
+	{
+		return self::$ci->session->userdata($key);
+	}
 }
 
 app::init();

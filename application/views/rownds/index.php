@@ -1,4 +1,5 @@
 <?php
+echo app::div_open(array('class'=>'two-column-wrapper radius-4444'));
 echo app::div_open(array('id'=>'add-rownd-wrapper','class'=>'radius-4400'));
 	echo form_open('rownds/create', array('id'=>'form','class'=>'radius-4400'));
 	echo form_input(array('name'=>'url','id'=>'url', 'value'=>'enter a url'));
@@ -10,7 +11,6 @@ echo app::div_close();
 echo app::div_open(array('id'=>'content-left'));
 	echo app::gravatar($email);
 	echo '<ul id="syndication-options">';
-	echo '<li>'. anchor('#','Edit', array('class'=>'edit-rownds-link')) .'</li>';
 	if (! $allow_public)
 	{
 		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'Json', array('target'=>'_blank')) .'</li>';
@@ -29,6 +29,7 @@ echo app::div_close();
 echo app::div_open(array('id'=>'content-right'));
 if (isset($rownds) and is_array($rownds))
 {
+		echo anchor('#', img(array('src'=>'/assets/images/gear.png','class'=>'edit-options')));
 		echo '<ul id="sortable">';
 		echo '<li class="empty"></li>';
 		foreach($rownds as $rownd)
@@ -63,3 +64,4 @@ if (isset($rownds) and is_array($rownds))
 echo app::div_close();
 
 echo app::div('', array('class'=>'clearfix'));
+echo app::div_close();

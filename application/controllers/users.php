@@ -6,7 +6,6 @@ class Users extends Public_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->load->model('user');
 		$this->form_validation->set_error_delimiters('<div class="account_form error">', '</div>');
 		$data['title'] = 'My Account';
 		$this->load->vars($data);
@@ -46,7 +45,7 @@ class Users extends Public_Controller{
 			}
 		}
 		
-		$this->render();
+		$this->render(NULL, NULL, 'login');
 	}
 	
 	//-----------------------------------------------------------------
