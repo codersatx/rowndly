@@ -146,16 +146,6 @@ class App{
 	
 	//--------------------------------------------------------------------------
 
-
-	/**
-	* CodeIgniter Gravatar Helper
-	*
-	* @package      CodeIgniter
-	* @subpackage   Helpers
-	* @category     Helpers
-	* @author       David Cassidy
-	*/
-
 	/**
 	* Gravatar
 	*
