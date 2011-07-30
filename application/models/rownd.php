@@ -16,9 +16,10 @@ class Rownd extends Orm{
 	
 	public function find_by_user($user_id)
 	{
-		$this->db->select('title, url, last_visited');
-		$this->db->where('user_id', $user_id);
-		$result = $this->db->get('rownds');
+		$result = $this->db->select('title, url, last_visited')
+				 ->where('user_id', $user_id)
+				 ->order_by('sort_order','asc')
+				 ->get('rownds');
 		return $result;
 	}
 
