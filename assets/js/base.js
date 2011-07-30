@@ -35,7 +35,7 @@ $(function() {
 		});
 	});
 	
-	$('#ssortable li').mouseover(function(){
+	$('#sortable li').mouseover(function(){
 		$(this).find('.delete-link, .edit-link').show();
 	}).mouseleave(function(){
 		$(this).find('.delete-link, .edit-link').hide();
