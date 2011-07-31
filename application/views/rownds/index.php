@@ -1,4 +1,6 @@
 <?php
+$public_profile = app::session('allow_public') == 1 ? 'Public Profile' : 'Private Profile';
+
 echo app::div_open(array('class'=>'two-column-wrapper radius-4444'));
 echo app::div_open(array('id'=>'add-rownd-wrapper','class'=>'radius-4400'));
 	echo form_open('rownds/create', array('id'=>'form','class'=>'radius-4400'));
@@ -10,26 +12,24 @@ echo app::div_close();
 
 echo app::div_open(array('id'=>'content-left'));
 	echo app::gravatar($email);
-	echo '<h2>Account</h2>';
-	echo '<ul id="syndication-options">';
-		echo '<li>Name:'. app::session('first_name') .' '. app::session('last_name') .'</li>';
-		echo '<li>Email: '. app::session('email') .'</li>';
-		echo '<li>Public Profile: '. app::session('allow_public') .'</li>';
+	echo '<ul id="profile">';
+		echo '<li><strong>'. app::session('first_name') .' '. app::session('last_name') .'</strong></li>';
+		echo '<li>'. app::session('email') .'</li>';
+		echo '<li>'. $public_profile .'</li>';
 	echo '</ul>';
 	
-	echo '<h2>Formats</h2>';
 	echo '<ul id="syndication-options">';
 	if (! $allow_public)
 	{
-		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'Json', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'Xml', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'Rss', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'JSON', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'XML', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'RSS', array('target'=>'_blank')) .'</li>';
 	}
 	else
 	{		
-		echo '<li>'. anchor('/api/json/'. $user_id , 'json', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/xml/'. $user_id, 'xml', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/rss/'. $user_id, 'rss', array('target'=>'_blank')) .'</li>';	
+		echo '<li>'. anchor('/api/json/'. $user_id , 'JSON', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id, 'XML', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id, 'RSS', array('target'=>'_blank')) .'</li>';	
 	}
 	echo '</ul>';
 echo app::div_close();

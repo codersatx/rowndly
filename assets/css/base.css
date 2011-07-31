@@ -4,7 +4,7 @@ Body and General
 body
 {
 	font: 12px "Lucida Grande", Helvetica, Arial, sans-serif;
-	background:#333;
+	background:#333 url(i/bg-page.gif) repeat 0 0;
 	overflow-x:hidden;
 	margin:0;
 	padding:0;
@@ -260,6 +260,7 @@ Content
 	width:160px;
 	float:left;
 	padding:20px;
+	font-size:10px;
 }
 
 #content-right
@@ -268,6 +269,41 @@ Content
 	float:right;
 	padding:20px;
 	position:relative;
+}
+
+#content-left ul
+{
+	margin:0;
+	padding:0;
+}
+
+#content-left li
+{
+	list-style-type:none;
+}
+
+#content-left h2
+{
+	font-size:14px;
+	font-weight:normal;
+}
+
+ul#profile
+{
+	margin-top:10px;
+}
+
+ul#syndication-options 
+{
+	padding-top:10px;
+	margin-top:10px;
+	border-top:1px dotted #ccc;
+}
+
+#syndication-options li
+{
+	display:inline;
+	padding-right:10px;
 }
 
 /***************************************************
@@ -329,33 +365,31 @@ Rownds
 
 .inline-title, .inline-url
 {
-	border:1px solid #7aafc3;
-	background-color:#d5f0f6;
-	width:260px;
+	border:1px solid #ccc;
+	background-color:#e4e4e4;
+	width:280px;
 	padding:6px;
 	font-size:14px;
 }
 
 .inline-submit, .like-button
 {
-	background-color:#1b83af;
-    background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#1b83af), to(#025688));
-    background: -moz-linear-gradient(center top , #1b83af 0pt, #025688 100%) repeat scroll 0 0 transparent;
-    border-color: initial;
-    border: 0px #3F733C;
-    color: #8cd8ef;
-    font-size: 12px;
+	background-color:#666;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
+	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border:1px solid #333;
+	color: #fff;
+    font-size: 11px;
     margin-right: 12px;
     padding: 8px 10px;
     text-shadow: rgba(0, 0, 0, 0.398438) 0px 1px 0px;
     -webkit-border-radius:4px;
     -moz-border-radius:4px ;
     border-radius:4px;
-    text-transform:uppercase;
     cursor:pointer;
 	position:absolute;
 	top:9px;
-	right:68px;
+	right:44px;
 }
 
 .delete-link
