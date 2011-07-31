@@ -10,7 +10,9 @@ $(function() {
 		},
 		placeholder: "ui-state-highlight"
 	});
+	
 	$( "#sortable" ).disableSelection();
+	
 	$('#window-target').click(function(){
 		if ($(this).is(':checked') == true)
 		{
@@ -43,9 +45,15 @@ $(function() {
 	
 	$('#add-rownd-button').click(function(e){
 		e.preventDefault();
-	
-		$('.loader').show();
+		
 		var url = $('#url').val();
+		if (url == '' || url == 'enter a url')
+		{
+			show_message('Please enter a url.','error');
+			return false;
+		}
+		
+		$('.loader').show();
 		var str = $('form').serialize();
 		$.post('/rownds/create', str, function(data){
 			show_message('Rownd added.', 'success');
@@ -173,7 +181,12 @@ $(function() {
 	
 	function show_message(message, type)
 	{
+ 		$('html, body').animate({scrollTop:0}, 'slow');
 		$('#message').text(message);
+		$('#message').removeClass('success');
+		$('#message').removeClass('error');
+		$('#message').removeClass('notice');
+		
 		$('#message').addClass(type);
 		$('#message').slideDown('fast');
 		$('#message').delay(3000).slideUp('fast');

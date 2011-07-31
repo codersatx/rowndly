@@ -58,7 +58,7 @@ class Rownds extends Auth_Controller{
 				array('class'=>'delete-link','rel'=>$rownd->id));
 				
 			echo '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
-			echo anchor($rownd->url, character_limiter($rownd->title, 70), array('target'=>'_blank'));
+			echo anchor($rownd->url, character_limiter($rownd->title, 56), array('target'=>'_blank'));
 			echo app::div($rownd->url, array('class'=>'rownd-url'));
 			echo $edit . $delete .'</li>';	
 		}
@@ -73,7 +73,8 @@ class Rownds extends Auth_Controller{
 		
 		if ($this->rownd->save($values))
 		{
-			echo json_encode(array('id'=>$values->id, 'title'=> $values->title, 'url'=>$values->url));
+			$title = character_limiter($values->title, 56, '...');
+			echo json_encode(array('id'=>$values->id, 'title'=> $title, 'url'=>$values->url));
 		}
 	}
 	
