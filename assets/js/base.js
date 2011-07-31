@@ -151,7 +151,7 @@ $(function() {
 			}
 			else
 			{
-				show_message('Sorry, login failed fool','error');
+				show_message('Sorry, login failed.','error');
 			}
 		}, 'json');
 	});
