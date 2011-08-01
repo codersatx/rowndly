@@ -173,6 +173,11 @@ Wrappers
 	background:#fff url(i/bg-wrapper.gif) repeat-y 0 0;
 }
 
+body.post #wrapper
+{
+	width:100%;
+}
+
 /***************************************************
 Add Rownd Form
 ****************************************************/

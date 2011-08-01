@@ -57,6 +57,8 @@ class App{
 	    echo "</div>";
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function get_post_values($skip = array())
 	{
 		$object = new stdClass;
@@ -71,16 +73,22 @@ class App{
 		return $object;
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function set_flash($notice, $type = 'notice')
 	{
 		$flash = self::$ci->session->set_flashdata(array('notice'=>$notice, 'notice_type'=>$type));
 		return $flash;
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function get_flash($key)
 	{
 		return self::$ci->session->flashdata($key);
 	}
+	
+	//--------------------------------------------------------------------------
 	
 	public static function div($string, $attributes = array())
 	{
@@ -90,6 +98,8 @@ class App{
 		return $out;
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function span($string, $attributes = array())
 	{
 		$out = '<span ';
@@ -97,6 +107,8 @@ class App{
 		$out .= '>'. $string .'</span>';
 		return $out;
 	}
+	
+	//--------------------------------------------------------------------------
 	
 	public static function parse_attributes($attributes)
 	{
@@ -108,6 +120,8 @@ class App{
 		return $out;
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function is_post()
 	{
 	   	$method = $_SERVER['REQUEST_METHOD'];
@@ -118,21 +132,29 @@ class App{
         return FALSE;
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function div_open($attributes = array())
 	{
 		return '<div '. self::parse_attributes($attributes) .'>';
 	}
+	
+	//--------------------------------------------------------------------------
 	
 	public static function div_close()
 	{
 		return '</div>';
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function get_current_url()
 	{
 		$out = "http://". $_SERVER["SERVER_NAME"].$_SERVER["REQUEST_URI"];
 	 	return $out;
 	}
+	
+	//--------------------------------------------------------------------------
 	
 	public static function requires_login()
 	{
@@ -169,10 +191,14 @@ class App{
 	        .$default);
 	}
 	
+	//--------------------------------------------------------------------------
+	
 	public static function session($key)
 	{
 		return self::$ci->session->userdata($key);
 	}
+	
+	//--------------------------------------------------------------------------
 	
 	public function show_js_message($message, $type = "success")
 	{

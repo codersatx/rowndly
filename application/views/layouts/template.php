@@ -9,7 +9,7 @@
 <script src="/assets/js/jquery-ui-1.8.14.custom.min.js"></script>
 <script src="/assets/js/base.js"></script>
 </head>
-<body>
+<body class="<?php echo $this->uri->segment(1) .' '. $this->uri->segment(2);?>">
 	<div id="message"></div>
 	
 	<div id="header">
