@@ -73,7 +73,7 @@ class App{
 	
 	public static function set_flash($notice, $type = 'notice')
 	{
-		$flash = self::$ci->session->set_flashdata(array('notice'=>$notice, 'type'=>$type));
+		$flash = self::$ci->session->set_flashdata(array('notice'=>$notice, 'notice_type'=>$type));
 		return $flash;
 	}
 	
@@ -172,6 +172,14 @@ class App{
 	public static function session($key)
 	{
 		return self::$ci->session->userdata($key);
+	}
+	
+	public function show_js_message($message, $type = "success")
+	{
+		$code = '<script type="text/javascript">';
+		$code .= 'show_message("'.$message.'","'. $type .'");';
+		$code .= '</script>';
+		return $code;
 	}
 }
 

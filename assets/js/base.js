@@ -1,3 +1,15 @@
+function show_message(message, type)
+{
+	$('html, body').animate({scrollTop:0}, 'slow');
+	$('#message').text(message);
+	$('#message').removeClass('success');
+	$('#message').removeClass('error');
+	$('#message').removeClass('notice');
+	$('#message').addClass(type);
+	$('#message').slideDown('fast');
+	$('#message').delay(3000).slideUp('fast');
+}
+
 $(function() {
 	$( "#sortable" ).sortable({
 		stop: function(event, ui){
@@ -186,7 +198,6 @@ $(function() {
 		$('#message').removeClass('success');
 		$('#message').removeClass('error');
 		$('#message').removeClass('notice');
-		
 		$('#message').addClass(type);
 		$('#message').slideDown('fast');
 		$('#message').delay(3000).slideUp('fast');

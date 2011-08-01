@@ -41,6 +41,8 @@ a
 	-webkit-border-radius:0 0 4px 4px;
 }
 
+
+
 /***************************************************
 Message
 ****************************************************/
@@ -58,16 +60,31 @@ Message
 	text-align:center;
 }
 
-#message.success
+.message
+{
+	background-color:#f2f2f2;
+	padding:8px;
+	font-size:18px;
+	width:100%;
+	margin-bottom:5px;
+}
+
+#message.success, .success
 {
 	background-color:#e8febe;
 	color:#4d7304;
 }
 
-#message.error
+#message.error, .error
 {
 	background-color:#fdcfdb;
 	color:#c35370;
+}
+
+#message.notice, .notice
+{
+	background-color:#fbf2cd;
+	color:#ab9b5b;
 }
 
 
@@ -304,6 +321,40 @@ ul#syndication-options
 {
 	display:inline;
 	padding-right:10px;
+}
+
+.single-column
+{
+	padding:30px 40px;
+}
+
+.single-column .form-row
+{
+	padding:10px 0;
+}
+
+.single-column label
+{
+	display:block;
+	font-weight:bold;
+}
+
+.single-column input[type=text],
+.single-column input[type=password]
+{
+	
+	width:870px;
+	border:1px solid #ccc;
+	background-color:#e4e4e4;
+	padding:6px;
+	font-size:14px;
+}
+
+.single-column .input-description
+{
+	font-size:10px;
+	color:#666;
+	font-style:italic;
 }
 
 /***************************************************

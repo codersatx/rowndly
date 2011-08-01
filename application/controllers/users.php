@@ -6,7 +6,7 @@ class Users extends Public_Controller{
 	public function __construct()
 	{
 		parent::__construct();
-		$this->form_validation->set_error_delimiters('<div class="account_form error">', '</div>');
+		$this->form_validation->set_error_delimiters('<div class="account_form message error">', '</div>');
 		$data['title'] = 'My Account';
 		$this->load->vars($data);
 	}
@@ -129,8 +129,9 @@ class Users extends Public_Controller{
 				if ($this->user->check_username($values->username))
 				{
 					$this->user->save($values);
-					app::set_flash('Your account was changed successfully. Because you changed your username you will need to logout again to make further changes to your account.','success');
-					redirect('users/my_account');
+					$data['message'] = 'Please login again since you changed your username.';
+					$data['message_type'] = 'success';
+					$this->render($data);
 				}
 				else
 				{
@@ -142,8 +143,11 @@ class Users extends Public_Controller{
 			else
 			{
 					$this->user->save($values);
-					app::set_flash('Your account was changed successfully.','success');
-					redirect('users/my_account');
+					//app::set_flash('Your account was changed successfully.','success');
+					//redirect('users/my_account');
+					$data['message'] = 'Your account was changed successfully.';
+					$data['message_type'] = 'success';
+					$this->render($data);
 			}
 		}
 	}
@@ -154,7 +158,6 @@ class Users extends Public_Controller{
 	{
 		app::requires_login();
 		$data['head_title'] = 'Change Password';
-		//$this->form_validation->set_rules('current_password', 'Current Password', 'required|min_length[6]');
 		$this->form_validation->set_rules('password', 'Password', 'required|min_length[6]|matches[confirm_password]');
 		$this->form_validation->set_rules('confirm_password', 'Confirm Password', 'required|min_length[6]');
 		
@@ -170,13 +173,15 @@ class Users extends Public_Controller{
 			$result = $this->user->change_password($db_data);
 			if($result)
 			{
-				app::set_flash('Your password was changed successfully.','success');
-				redirect('users/change_password');
+				$data['message'] = 'Your password was changed successfully.';
+				$data['message_type'] = 'success';
+				$this->render($data);
 			}
 			else
 			{
-				app::set_flash('There was an error updating your password.','error');
-				redirect('users/change_password');
+				$data['message'] = 'Please enter your current password.';
+				$data['message_type'] = 'error';
+				$this->render($data);
 			}
 		}
 	}

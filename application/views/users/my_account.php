@@ -1,12 +1,15 @@
-<h2>My Account</h2>
-
-
 <?php
-echo app::get_flash('notice');
+
+if(isset($message))
+{
+	echo app::show_js_message($message, $message_type);
+}
+
+echo app::div_open(array('class'=>'single-column'));
 
 if (isset($custom_error_message))
 {
-	echo app::div($custom_error_message, array('class'=>'error'));
+	echo app::div($custom_error_message, array('class'=>'message error'));
 }
 
 echo validation_errors();
@@ -56,3 +59,5 @@ echo app::div_open(array('class'=>'form-row'));
 echo app::div_close();
 
 echo form_close();
+
+echo app::div_close();
