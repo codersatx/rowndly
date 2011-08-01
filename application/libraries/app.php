@@ -182,5 +182,4 @@ class App{
 		return $code;
 	}
 }
-
 app::init();
