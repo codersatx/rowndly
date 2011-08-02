@@ -37,7 +37,13 @@ input[type=text], input[type=password]
 {
 	border:1px solid #ccc;
 	width:350px;
-	padding:10px;
+	padding:8px;
 	margin-bottom:10px;
+	font-size:15px;
+}
+
+.loading
+{
+	display:none;
 }
 
