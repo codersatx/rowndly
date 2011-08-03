@@ -45,6 +45,7 @@ input[type=text], input[type=password]
 .loading
 {
 	display:none;
+	float:right;
 }
 
 #submit-login
