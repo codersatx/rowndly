@@ -141,10 +141,6 @@ $(function() {
 				show_message('You are not logged in.','error');
 			}
 		});
-			
-			
-	
-	
 	});
 	
 	$('#submit-login').click(function(e){
@@ -192,5 +188,4 @@ $(function() {
 		$('#message').slideDown('fast');
 		$('#message').delay(3000).slideUp('fast');
 	}
-	
 });
