@@ -32,6 +32,7 @@ echo app::div_open(array('id'=>'content-left'));
 		echo '<li>'. anchor('/api/rss/'. $user_id, 'RSS', array('target'=>'_blank')) .'</li>';	
 	}
 	echo '</ul>';
+
 echo app::div_close();
 
 echo app::div_open(array('id'=>'content-right'));
