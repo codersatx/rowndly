@@ -46,6 +46,7 @@ input[type=text], input[type=password]
 {
 	display:none;
 	float:right;
+	padding: 8px 15px;
 }
 
 #submit-login
