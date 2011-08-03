@@ -87,7 +87,8 @@ class Rownds extends Auth_Controller{
 				$output .= anchor($rownd->url, character_limiter($rownd->title, 56), array('target'=>'_blank'));
 				$output .= app::div($rownd->url, array('class'=>'rownd-url'));
 				$output .= $edit . $delete .'</li>';
-				$this->output->set_output($output);	
+				$this->output->set_content_type('application/json')
+							 ->set_output(json_encode(array('status'=>'ok','output'=>$output)));	
 			}
 		}
 		else
@@ -143,7 +144,7 @@ class Rownds extends Auth_Controller{
 		{
 			$this->rownd->destroy($id);
 			$this->output->set_content_type('text/plain')
-						 ->set_output('OK');
+						 ->set_output('ok');
 		}
 		else
 		{

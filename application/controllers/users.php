@@ -187,4 +187,21 @@ class Users extends Public_Controller{
 			}
 		}
 	}
+	
+	public function is_logged_in()
+	{
+		if(app::is_ajax())
+		{
+			if($this->auth->is_logged_in())
+			{
+				$status = 'yes';
+			}
+			else
+			{
+				$status = 'no';
+			}
+			$this->output->set_content_type('plain/text')
+			 			 ->set_output($status);
+		}
+	}
 }

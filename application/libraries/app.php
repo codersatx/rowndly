@@ -160,9 +160,9 @@ class App{
 	{
 		if ( ! self::$ci->auth->is_logged_in())
 		{
-			session_start();
-			$_SESSION['requested_url'] = self::get_current_url();
-			redirect('users/login');
+				session_start();
+				$_SESSION['requested_url'] = self::get_current_url();
+				redirect('users/login');
 		}
 	}
 	
