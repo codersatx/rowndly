@@ -162,7 +162,7 @@ $(function() {
 			$('#submit-login').show();
 			if (data.status == 'OK')
 			{
-				$('.loading').text('Redirecting...');
+				$('.loading').html('Redirecting...');
 				window.location.href = data.redirect;
 			}
 			else
