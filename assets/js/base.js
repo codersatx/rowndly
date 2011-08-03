@@ -160,13 +160,14 @@ $(function() {
 		var str = $('#login-form').serialize();
 		$.post('/users/login', str, function(data){
 			$('#submit-login').show();
-			$('.loading').hide();
 			if (data.status == 'OK')
 			{
+				$('.loading').text('Redirecting...');
 				window.location.href = data.redirect;
 			}
 			else
 			{
+				$('.loading').hide();
 				show_message('Sorry, login failed.','error');
 			}
 		}, 'json');
