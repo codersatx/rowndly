@@ -163,7 +163,7 @@ $(function() {
 			$('.loading').hide();
 			if (data.status == 'OK')
 			{
-				window.location.href = data.redirect;
+				window.location = data.redirect;
 			}
 			else
 			{
