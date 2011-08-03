@@ -11,7 +11,7 @@ echo app::div_open(array('id'=>'add-rownd-wrapper','class'=>'radius-4400'));
 echo app::div_close();
 
 echo app::div_open(array('id'=>'content-left'));
-	echo app::gravatar($email);
+	echo app::div(app::gravatar($email, NULL, 100), array('id'=>'gravatar'));
 	echo '<ul id="profile">';
 		echo '<li><strong>'. app::session('first_name') .' '. app::session('last_name') .'</strong></li>';
 		echo '<li>'. app::session('email') .'</li>';
@@ -32,6 +32,11 @@ echo app::div_open(array('id'=>'content-left'));
 		echo '<li>'. anchor('/api/rss/'. $user_id, 'RSS', array('target'=>'_blank')) .'</li>';	
 	}
 	echo '</ul>';
+	
+	echo app::div_open(array('class'=>'add-to-rowndly-wrapper'));
+	echo app::div('Drag to Bookmarks Bar', array('class'=>'add-to-rowndly-label'));
+	echo app::div("<a href=\"javascript:javascript:(function(){var%20url%20=%20location.href;window.open('http://rowndly.com/post.php?url='%20+%20encodeURIComponent(url)%20+%20'&','_blank','location=0,menubar=no,height=300,width=800,toolbar=no,scrollbars=no,status=no');})();\" title=\"Drag this to your bookmark bar.\">Add To Rowndly</a>", array('class'=>'add-to-rowndly-link'));
+	echo app::div_close();
 
 echo app::div_close();
 

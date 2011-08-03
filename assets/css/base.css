@@ -281,8 +281,14 @@ Content
 {
 	width:160px;
 	float:left;
-	padding:20px;
+	padding:35px 20px;
 	font-size:10px;
+	text-align:center;
+}
+
+#gravatar img
+{
+	border:3px solid #ccc;
 }
 
 #content-right
@@ -315,11 +321,27 @@ ul#profile
 	margin-top:10px;
 }
 
-ul#syndication-options 
+ul#syndication-options, .add-to-rowndly-wrapper
 {
 	padding-top:10px;
 	margin-top:10px;
 	border-top:1px dotted #ccc;
+}
+
+.add-to-rowndly-label
+{
+	font-weight:bold;
+	padding-bottom:15px;
+}
+
+.add-to-rowndly-link a
+{
+	text-decoration:none;
+	padding:5px;
+	background-color:#ccc;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
 }
 
 #syndication-options li
