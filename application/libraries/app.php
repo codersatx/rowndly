@@ -207,5 +207,20 @@ class App{
 		$code .= '</script>';
 		return $code;
 	}
+	
+	//--------------------------------------------------------------------------
+	
+	public static function is_ajax($disable=FALSE)
+	{
+		if ($disable === TRUE)
+		{
+			return TRUE;
+		}
+		else
+		{
+			return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
+		}
+	}
+	
 }
 app::init();
