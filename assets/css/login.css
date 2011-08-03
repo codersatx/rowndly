@@ -25,7 +25,7 @@ label
 {
 	display:block;
 	margin-bottom:5px;
-	font-size:14px;
+	font-size:13px;
 }
 
 input
@@ -37,13 +37,29 @@ input[type=text], input[type=password]
 {
 	border:1px solid #ccc;
 	width:350px;
-	padding:8px;
+	padding:5px;
 	margin-bottom:10px;
-	font-size:15px;
+	font-size:13px;
 }
 
 .loading
 {
 	display:none;
+}
+
+#submit-login
+{
+	background-color:#666;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
+	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border:1px solid #333;
+	color: #fff;
+	margin-right: 12px;
+	padding: 8px 15px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px ;
+	cursor:pointer;
+	float:right;
 }
 
