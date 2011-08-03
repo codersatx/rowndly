@@ -35,7 +35,7 @@ echo app::div_open(array('class'=>'form-row'));
 echo app::div_close();
 
 echo app::div_open(array('class'=>'form-row'));
-	echo form_submit('submit', 'Save');
+	echo form_submit('submit', 'Save', 'class="gradient-button"');
 echo app::div_close();
 echo form_close();
 

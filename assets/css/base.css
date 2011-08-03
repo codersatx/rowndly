@@ -362,6 +362,23 @@ ul#syndication-options
 	font-style:italic;
 }
 
+
+.gradient-button
+{
+	background-color:#666;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
+	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border:1px solid #333;
+	color: #fff;
+	margin-right: 12px;
+	padding: 8px 15px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px ;
+	cursor:pointer;
+	float:right;
+}
+
 /***************************************************
 Rownds
 ****************************************************/
