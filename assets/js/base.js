@@ -152,21 +152,21 @@ $(function() {
 		}
 	});
 	
-	
 	$('#submit-login').click(function(e){
 		e.preventDefault();
 		$(this).hide();
 		$('.loading').show();
 		var str = $('#login-form').serialize();
 		$.post('/users/login', str, function(data){
-			$('#submit-login').show();
-			$('.loading').hide();
+			
 			if (data.status == 'OK')
 			{
+				$('.loading').text('Redirecting...');
 				window.location = data.redirect;
 			}
 			else
 			{
+				$('#submit-login').show();
 				$('.loading').hide();
 				show_message('Sorry, login failed.','error');
 			}
