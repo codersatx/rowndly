@@ -158,16 +158,15 @@ $(function() {
 		$('.loading').show();
 		var str = $('#login-form').serialize();
 		$.post('/users/login', str, function(data){
-			
 			if (data.status == 'OK')
 			{
 				$('.loading').text('Redirecting...');
-				window.location = data.redirect;
+				window.location.href = data.redirect;
 			}
 			else
 			{
-				$('#submit-login').show();
 				$('.loading').hide();
+				$('#submit-login').show();
 				show_message('Sorry, login failed.','error');
 			}
 		}, 'json');

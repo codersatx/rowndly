@@ -30,17 +30,19 @@ class Users extends Public_Controller{
 			if ($result == TRUE)
 			{
 				session_start();
-				$redirect = $_SESSION['requested_url'];
-				if ($redirect == '/users/login')
+				$redirect = '/';
+				if (isset($_SESSION['requested_url']))
 				{
-					$redirect = '/rownds';
+					$redirect = $_SESSION['requested_url'];
 				}
-				echo json_encode(array('status'=>'OK','redirect'=>$redirect));
+				$this->output->set_content_type('application/json')
+							 ->set_output(json_encode(array('status'=>'OK','redirect'=>$redirect)));
 				return;
 			}
 			else
 			{
-				echo json_encode(array('status'=>'NOT OK'));
+				$this->output->set_content_type('application/json')
+							 ->set_output(json_encode(array('status'=>'NOT OK')));
 				return;
 			}
 		}
@@ -103,7 +105,7 @@ class Users extends Public_Controller{
 		
 		$user = $this->session->userdata('user');
 		$data['user'] = $this->user->find($user->id)->result;
-		$data['head_title'] = 'Register';
+		$data['head_title'] = 'My Account';
 		$this->form_validation->set_rules('first_name', 'First Name');
 		$this->form_validation->set_rules('private_key', 'Private Key');
 		$this->form_validation->set_rules('last_name', 'Last Name');
