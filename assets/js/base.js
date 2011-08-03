@@ -160,9 +160,9 @@ $(function() {
 		var str = $('#login-form').serialize();
 		$.post('/users/login', str, function(data){
 			$('#submit-login').show();
+			$('.loading').hide();
 			if (data.status == 'OK')
 			{
-				$('.loading').hide();
 				window.location.href = data.redirect;
 			}
 			else
