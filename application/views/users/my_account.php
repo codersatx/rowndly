@@ -1,6 +1,6 @@
 <?php
 
-if(isset($message))
+if (isset($message))
 {
 	echo app::show_js_message($message, $message_type);
 }

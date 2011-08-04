@@ -55,6 +55,7 @@ class Users extends Public_Controller{
 	public function register()
 	{
 		$data['head_title'] = 'Register';
+		$data['title'] = 'Register';
 		$this->form_validation->set_error_delimiters('<div class="registration error">', '</div>');
 		$this->form_validation->set_rules('first_name', 'First Name');
 		$this->form_validation->set_rules('last_name', 'Last Name');

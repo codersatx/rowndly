@@ -5,9 +5,9 @@
 <title><?php echo $head_title?></title>
 <meta name="description" content="<?php echo $head_description?>"/>
 <link href="/assets/css/base.css" rel="stylesheet">
-<link href="/assets/css/post.css" rel="stylesheet">
+<link href="/assets/css/login.css" rel="stylesheet">
 </head>
-<body id="post">
+<body id="login">
 	<div id="message"></div>
 	<div id="wrapper" class="radius-4444">
 		<div id="logo"><img src="/assets/images/logo-small.gif" alt="rowndly"></div>

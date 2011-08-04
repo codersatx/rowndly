@@ -11,7 +11,7 @@
 <link href="/assets/css/base.css" rel="stylesheet">
 <link href="/assets/css/post.css" rel="stylesheet">
 </head>
-<body id="login">
+<body id="post">
 	<div id="message"></div>
 	<div id="wrapper" class="radius-4444">
 		<div id="logo"><img src="/assets/images/logo-small.gif" alt="rowndly"></div>

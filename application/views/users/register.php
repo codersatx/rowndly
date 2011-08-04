@@ -1,8 +1,6 @@
-<h2>Register</h2>
-
-<p>To create a rowndly account please complete the form below</p>
-
 <?php
+
+echo app::div_open(array('class'=>'single-column'));
 
 if (isset($custom_error_message))
 {
@@ -47,7 +45,9 @@ echo app::div_open(array('class'=>'form-row'));
 echo app::div_close();
 
 echo app::div_open(array('class'=>'form-row'));
-	echo form_submit('submit','Register');
+	echo form_submit('submit','Register', 'class="gradient-button"');
 echo app::div_close();
 
 echo form_close();
+
+echo app::div_close();
