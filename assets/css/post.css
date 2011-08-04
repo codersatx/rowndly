@@ -60,6 +60,12 @@ input[type=text], input[type=password]
 	padding: 8px 15px;
 }
 
+.loader
+{
+	top: 24px;
+	right: 127px;
+}
+
 #submit-login
 {
 	background-color:#666;

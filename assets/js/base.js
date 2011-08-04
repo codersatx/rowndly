@@ -62,7 +62,7 @@ $(function() {
 		$(this).find('.delete-link, .edit-link').hide();
 	});
 	
-	$('#add-rownd-button').click(function(e){
+	$('#add-rownd-button, #post-rownd-button').click(function(e){
 		e.preventDefault();
 		$.post('/users/is_logged_in', function(data){
 		if (data == 'yes')
