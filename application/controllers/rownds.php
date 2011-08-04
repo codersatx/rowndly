@@ -186,7 +186,7 @@ class Rownds extends Auth_Controller{
 	{
 		$path = str_replace('--', '/', $path);
 		$data['url'] = $url . $path;
-		$this->render($data, NULL, 'layouts/login');
+		$this->render($data, NULL, 'login');
 	}
 	
 	//------------------------------------------------------------------------------------
