@@ -1,0 +1,78 @@
+body
+{
+	margin:15px 0 0 0;
+}
+
+#wrapper
+{
+	width:600px;
+	background-color:#e4e4e4;
+}
+
+#logo
+{
+	padding:10px;
+	background-color:#000;
+	text-align:center;
+}
+
+#form
+{
+	padding:15px;
+}
+
+input#url 
+{
+	width:450px;
+	float:left;
+	border-radius:3px;
+	-moz-border-radius:3px;
+	-webkit-border-radius:3px;
+	font-size:14px;
+	margin-right:10px;
+}
+
+label
+{
+	display:block;
+	margin-bottom:5px;
+	font-size:13px;
+}
+
+input
+{
+	display:block;
+}
+
+input[type=text], input[type=password]
+{
+	border:1px solid #ccc;
+	width:350px;
+	padding:5px;
+	margin-bottom:10px;
+	font-size:13px;
+}
+
+.loading
+{
+	display:none;
+	float:right;
+	padding: 8px 15px;
+}
+
+#submit-login
+{
+	background-color:#666;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
+	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border:1px solid #333;
+	color: #fff;
+	margin-right: 12px;
+	padding: 8px 15px;
+	-webkit-border-radius:4px;
+	-moz-border-radius:4px;
+	border-radius:4px ;
+	cursor:pointer;
+	float:right;
+}
+
