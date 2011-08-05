@@ -24,7 +24,7 @@ if ($status == 1)
 		<li>Clean minimalistic design.</li>
 	</ul>
 	<div class="clearfix"></div>
-	<h3>Sign up to get an invitation to our public beta when it's ready.</h3>
+	<h3>Request an invitation to our public beta.</h3>
 	<?php
 	echo form_open('beta/sign_up', 'id="beta-form"');
 	echo form_input('email', 'Email Address', 'id="email"');
