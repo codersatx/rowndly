@@ -31,7 +31,7 @@ class Beta extends Public_Controller{
 		$message .= '<p>Below you will find a link to register.</p>';
 		$message .= '<p>Feel free to register for the service.</p>';
 		$message .= '<p>If you find any bugs or other issues please submit them to:</p>';
-		$message .= '<p>codersatx@gmail.com</p>';
+		$message .= '<p>http://rowndly.wufoo.com/forms/rowndly-bug-tracker/</p>';
 		$message .= '<p>Register for Rowndly:</p>';
 		$message .= '<p>http://rowndly.com/register</p>';
 		$message .= '<p>Alex Garcia</p>';

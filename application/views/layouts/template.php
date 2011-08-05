@@ -20,6 +20,9 @@
 			<?php if ($this->auth->is_logged_in()):?>
 			<a href="/rownds">My Rownds</a>  
 			<a href="/my_account">My Account</a> 
+			
+			<a href="http://rowndly.wufoo.com/forms/z7x3k7/" onclick="window.open(this.href,  null, 'height=494, width=680, toolbar=0, location=0, status=1, scrollbars=1, resizable=1'); return false" title="Rowndly Bug Tracker">Submit A Bug</a>
+			
 			<a href="/logout">Logout</a>
 			<?php else:?>
 				<a href="/users/login">Login</a>
