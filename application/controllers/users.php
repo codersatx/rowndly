@@ -30,7 +30,7 @@ class Users extends Public_Controller{
 			if ($result == TRUE)
 			{
 				session_start();
-				$redirect = '/';
+				$redirect = '/rownds';
 				if (isset($_SESSION['requested_url']))
 				{
 					$redirect = $_SESSION['requested_url'];
@@ -74,6 +74,7 @@ class Users extends Public_Controller{
 			$values->created_at = date('Y-m-d h:i:s');
 			$values->is_active = TRUE;
 			$values->is_admin = FALSE;
+			$values->password = sha1($values->password);
 			if ($this->user->check_username($values->username))
 			{
 				$this->user->save($values);

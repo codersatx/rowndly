@@ -4,7 +4,7 @@ echo app::div_open(array('class'=>'single-column'));
 
 if (isset($custom_error_message))
 {
-	echo app::div($custom_error_message, array('class'=>'error'));
+	echo app::div($custom_error_message, array('class'=>'error message'));
 }
 
 echo validation_errors();
