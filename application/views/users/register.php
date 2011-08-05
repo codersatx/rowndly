@@ -9,7 +9,7 @@ if (isset($custom_error_message))
 
 echo validation_errors();
 
-echo form_open('users/register');
+echo form_open('/register');
 echo app::div_open(array('class'=>'form-row'));
 	echo form_label('First Name');
 	echo form_input('first_name', set_value('first_name'));

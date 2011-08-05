@@ -15,7 +15,7 @@ class Users extends Public_Controller{
 	
 	public function index()
 	{
-		$this->render();	
+		redirect('/login');
 	}
 	
 	//-----------------------------------------------------------------
@@ -47,7 +47,7 @@ class Users extends Public_Controller{
 			}
 		}
 		
-		$this->render(NULL, NULL, 'login');
+		$this->render(NULL, NULL, 'login', 'users', 'login');
 	}
 	
 	//-----------------------------------------------------------------
@@ -66,7 +66,7 @@ class Users extends Public_Controller{
 		
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->render($data);
+			$this->render($data, NULL, NULL, 'users', 'register');
 		}
 		else
 		{
@@ -78,13 +78,13 @@ class Users extends Public_Controller{
 			if ($this->user->check_username($values->username))
 			{
 				$this->user->save($values);
-				redirect('users/login');
+				redirect('/login');
 				
 			}
 			else
 			{
 				$data['custom_error_message'] = 'The username you selected already exists.';
-				$this->render($data);
+				$this->render($data, NULL, NULL, 'users', 'register');
 			}
 		}
 	}
@@ -96,7 +96,7 @@ class Users extends Public_Controller{
 		unset($user);
 		$this->session->set_userdata(array('user'=>''));
 		$this->session->sess_destroy();
-		redirect('users/login');
+		redirect('/login');
 	}
 	
 	//-----------------------------------------------------------------
@@ -117,7 +117,7 @@ class Users extends Public_Controller{
 	
 		if ($this->form_validation->run() === FALSE)
 		{
-			$this->render($data);
+			$this->render($data, NULL, NULL, 'users', 'my_account');
 		}
 		else
 		{	
@@ -136,19 +136,19 @@ class Users extends Public_Controller{
 					$this->user->save($values);
 					$data['message'] = 'Please login again since you changed your username.';
 					$data['message_type'] = 'success';
-					$this->render($data);
+					$this->render($data, NULL, NULL, 'users', 'my_account');
 				}
 				else
 				{
 					$data['custom_error_message'] = 'The username you selected already exists.';
-					$this->render($data);
+					$this->render($data, NULL, NULL, 'users', 'my_account');
 					return;
 				}
 			}
 			else
 			{
 					$this->user->save($values);
-					redirect('users/my_account/1');
+					redirect('/my_account/1');
 			}
 		}
 	}
@@ -165,7 +165,7 @@ class Users extends Public_Controller{
 		if ($this->form_validation->run() === FALSE)
 		{
 			$user = $this->session->userdata('user');
-			$this->render($data);
+			$this->render($data, NULL, NULL, 'users', 'change_password');
 		}
 		else
 		{
@@ -176,13 +176,13 @@ class Users extends Public_Controller{
 			{
 				$data['message'] = 'Your password was changed successfully.';
 				$data['message_type'] = 'success';
-				$this->render($data);
+				$this->render($data, NULL, NULL, 'users', 'change_password');
 			}
 			else
 			{
 				$data['message'] = 'Please enter your current password.';
 				$data['message_type'] = 'error';
-				$this->render($data);
+				$this->render($data, NULL, NULL, 'users', 'change_password');
 			}
 		}
 	}

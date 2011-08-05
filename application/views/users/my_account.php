@@ -19,7 +19,7 @@ if (isset($custom_error_message))
 
 echo validation_errors();
 
-echo form_open('users/my_account');
+echo form_open('/my_account');
 echo app::div_open(array('class'=>'form-row'));
 	echo form_label('First Name');
 	echo form_input('first_name', $user->first_name);

@@ -19,10 +19,10 @@
 		<div id="account-wrapper">
 			<?php if ($this->auth->is_logged_in()):?>
 			<a href="/rownds">My Rownds</a>  
-			<a href="/users/my_account">My Account</a> 
-			<a href="/users/logout">Logout</a>
+			<a href="/my_account">My Account</a> 
+			<a href="/logout">Logout</a>
 			<?php else:?>
-				<a href="/users/register">Register</a> <a href="/users/login">Login</a>
+				<a href="/users/login">Login</a>
 			<?php endif;?>
 		</div>
 	<div class="clearfix"></div>

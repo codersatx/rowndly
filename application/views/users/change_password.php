@@ -18,7 +18,7 @@ if (isset($custom_error_message))
 
 echo validation_errors();
 
-echo form_open('users/change_password');
+echo form_open('/change_password');
 echo app::div_open(array('class'=>'form-row'));
 	echo form_label('Current Password');
 	echo form_password('current_password');
