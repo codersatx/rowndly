@@ -60,7 +60,15 @@ if (isset($rownds) and is_array($rownds))
 			echo anchor($rownd->url, character_limiter($rownd->title, 56), 
 						array('id'=>'anchor_title_for_'.$rownd->id,'target'=>'_blank','class'=>'rownd-link','rel'=>$rownd->id));
 			echo app::div($rownd->url, array('class'=>'rownd-url', 'id'=>'anchor_url_for_'.$rownd->id));
-			echo app::div('Last Rownd: '. date("m/d/Y @ h:i a", strtotime($rownd->last_visited)), array('class'=>'last-visited','id'=>'last_visited_for_'.$rownd->id));
+			if ($rownd->last_visited)
+			{
+				echo app::div('Last Rownd: '. date("m/d/Y @ h:i a", strtotime($rownd->last_visited)), array('class'=>'last-visited','id'=>'last_visited_for_'.$rownd->id));
+			}
+			else
+			{
+				echo app::div('Last Rownd: Never', array('class'=>'last-visited','id'=>'last_visited_for_'.$rownd->id));
+			}
+		
 			echo '</div>';
 		
 			echo '<form method="post" action="/rownds/update" class="inline-form" id="form_for_'. $rownd->id .'">
