@@ -23,7 +23,7 @@ class Beta extends Public_Controller{
 		redirect('/beta/index/1');
 	}
 	
-	public function send_invite($email = 'codersatx@gmail.com')
+	public function send_invite($email = 'alexgarciafineart@gmail.com')
 	{
 		$this->load->helper('send_email');
 		$message = '<p>Hi. Thank you for your interest in our private beta.</p>';
