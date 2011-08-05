@@ -100,13 +100,14 @@ class Users extends Public_Controller{
 	
 	//-----------------------------------------------------------------
 	
-	public function my_account()
+	public function my_account($status = NULL)
 	{
 		app::requires_login();
 		
 		$user = $this->session->userdata('user');
 		$data['user'] = $this->user->find($user->id)->result;
 		$data['head_title'] = 'My Account';
+		$data['status'] = $status;
 		$this->form_validation->set_rules('first_name', 'First Name');
 		$this->form_validation->set_rules('private_key', 'Private Key');
 		$this->form_validation->set_rules('last_name', 'Last Name');
@@ -146,11 +147,7 @@ class Users extends Public_Controller{
 			else
 			{
 					$this->user->save($values);
-					//app::set_flash('Your account was changed successfully.','success');
-					//redirect('users/my_account');
-					$data['message'] = 'Your account was changed successfully.';
-					$data['message_type'] = 'success';
-					$this->render($data);
+					redirect('users/my_account/1');
 			}
 		}
 	}

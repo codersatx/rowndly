@@ -1,5 +1,10 @@
 <?php
 
+if(isset($status) && $status == 1)
+{
+	echo app::show_js_message('Your account was changed successfully.', 'success');
+}
+
 if (isset($message))
 {
 	echo app::show_js_message($message, $message_type);
