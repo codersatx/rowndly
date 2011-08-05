@@ -17,13 +17,14 @@ class Public_Controller extends CI_Controller{
      */
     public function render($view_data = array(), $view = NULL, $template = NULL)
     {
-		$controller = app::segment(1) ? app::segment(1) : 'rownds';;
-		$method = app::segment(2) ? app::segment(2) : 'index';
+		$controller = app::segment(1) ? app::segment(1) : 'beta';;
+		$method 	= app::segment(2) ? app::segment(2) : 'index';
+		
 		if ($view == NULL)
 		{
 			$view = $controller .'/'. $method;
 		}
-		
+
 		$template_data['head_title'] = isset($view_data['head_title']) ? 
 											$view_data['head_title'] : 
 											'rowndly - my daily rownds of sites I visit';

@@ -100,6 +100,7 @@ Header
 	height:50px;
 	line-height:50px;
 	padding:0 10px;
+	border-bottom:2px #198ab1 solid;
 }
 
 #header img

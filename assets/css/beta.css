@@ -1,0 +1,70 @@
+#masthead
+{
+	background-color:#000;
+	text-align:center;
+	padding:15px 0 ;
+	border-bottom:2px #198ab1 solid;
+}
+
+#content
+{
+	width:500px;
+	margin:auto;
+	text-align:left;
+	padding:20px 0 0 0;
+	color:#fff;
+}
+
+#content input[type=text]
+{
+	width:350px;
+	padding:8px;
+	border:none;
+	margin:0 10px 0 0px;
+}
+
+input[type=submit]
+{
+	padding-bottom:10px;
+}
+
+h2
+{
+	font-size:17px;
+	margin:15px 0 25px 0;
+	padding:0;
+	font-weight:normal;
+	text-align:center;
+}
+
+h3
+{
+	margin:25px 0 25px;
+	font-size:15px;
+	font-weight:normal;
+	clear:both;
+	text-align:center;
+	color:#67960d;
+}
+
+.left-column, .right-column
+{
+	float:left;
+	margin:0 10px;
+	color:#666;
+}
+
+.left-column li, .right-column li
+{
+	padding:5px 0;
+}
+
+#beta-form
+{
+	text-align:center;
+}
+
+#footer
+{
+	width:600px;
+}
