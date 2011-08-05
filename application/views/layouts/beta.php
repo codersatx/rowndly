@@ -10,7 +10,7 @@
 <link href="/assets/css/base.css" rel="stylesheet">
 <link href="/assets/css/beta.css" rel="stylesheet">
 </head>
-<body id="post">
+<body id="beta">
 	<div id="message"></div>
 		<?php echo $content?>
 	<div id="footer">rowndly - &copy; 2011 - agevio</div>

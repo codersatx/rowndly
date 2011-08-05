@@ -7,8 +7,19 @@ class Beta extends Public_Controller{
 		parent::__construct();
 	}
 	
-	public function index()
+	public function index($status = NULL)
 	{
-		$this->render(NULL, NULL, 'beta');
+		$data['status'] =  $status;
+		$this->render($data, NULL, 'beta');
+	}
+	
+	public function sign_up()
+	{
+		$email = $this->input->post('email');
+		$user = new stdClass();
+		$user->email = $this->input->post('email');
+		$user->date_registered = date('Y-m-d H:i:s');
+		$this->db->insert('beta', $user);
+		redirect('/beta/index/1');
 	}
 }

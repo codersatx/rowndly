@@ -1,3 +1,10 @@
+<?php
+if ($status == 1)
+{
+	echo app::show_js_message('We have received your registration. We\'ll be in touch.','success');
+}
+?>
+
 <div id="masthead">
 	<h1><img src="/assets/images/rowndly-logo-with-tagline.gif" alt="rowndly"/></h1>
 </div>
@@ -20,8 +27,8 @@
 	<h3>Sign up to get an invitation to our public beta when it's ready.</h3>
 	<?php
 	echo form_open('beta/sign_up', 'id="beta-form"');
-	echo form_input('email', 'Email Address');
-	echo form_submit('submit', 'Sign Up', 'class="gradient-button"');
+	echo form_input('email', 'Email Address', 'id="email"');
+	echo form_submit('submit', 'Sign Up', 'class="gradient-button" id="sign-up"');
 	echo form_close();
 	?>
 </div>

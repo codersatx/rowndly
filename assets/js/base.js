@@ -11,6 +11,38 @@ function show_message(message, type)
 }
 
 $(function() {
+	
+	$('body#beta #email').focus(function(){
+
+		if ($(this).val() == 'Email Address')
+		{
+			$(this).val('');
+		}
+	}).blur(function(){
+		if ($(this).val() == '')
+		{
+			$(this).val('Email Address');
+		}
+	});
+	
+	$('body#beta #sign-up').click(function(){
+		var email = $('#email').val();
+		if (email == '' || email == 'Email Address')
+		{
+			show_message('Please enter a valid email address.','error');
+			return false;
+		}
+		else
+		{
+			var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/;
+			if ( ! filter.test(email))
+			{
+				show_message('Please enter a valid email address.','error');
+				return false;
+			}
+		}
+	});
+	
 	$( "#sortable" ).sortable({
 		stop: function(event, ui){
 			$('#sortable').sortable('refresh');

@@ -14,6 +14,7 @@ body
 	padding:15px;
 	background-color:#000;
 	text-align:center;
+	border-top:2px #198ab1 solid;
 }
 
 #login-form
