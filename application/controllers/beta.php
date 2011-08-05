@@ -20,14 +20,15 @@ class Beta extends Public_Controller{
 		$user->email = $this->input->post('email');
 		$user->date_registered = date('Y-m-d H:i:s');
 		$this->db->insert('beta', $user);
+		$this->_send_invite($user->email);
 		redirect('/beta/index/1');
 	}
 	
-	public function send_invite($email = 'alexgarciafineart@gmail.com')
+	private function _send_invite($email)
 	{
 		$this->load->helper('send_email');
 		$message = '<p>Hi. Thank you for your interest in our private beta.</p>';
-		$message .= '<p>Below you will find a link to register. Feel free to register';
+		$message .= '<p>Below you will find a link to register. Feel free to register ';
 		$message .= 'and play with the service. If you find any bugs please submit them to:</p>';
 		$message .= '<p>ticket+rowndly.80138-6engsjz6@lighthouseapp.com</p>';
 		$message .= '<p>Register for Rowndly:</p>';
