@@ -19,7 +19,7 @@ echo app::div_open(array('id'=>'content-left'));
 	echo '</ul>';
 	
 	echo '<ul id="syndication-options">';
-	if (app::session('allow_public'))
+	if (app::session('allow_public') == 1)
 	{
 		echo '<li>'. anchor('/api/json/'. $user_id , 'JSON', array('target'=>'_blank')) .'</li>';
 		echo '<li>'. anchor('/api/xml/'. $user_id, 'XML', array('target'=>'_blank')) .'</li>';
