@@ -19,7 +19,7 @@ echo app::div_open(array('id'=>'content-left'));
 	echo '</ul>';
 	
 	echo '<ul id="syndication-options">';
-	if (app::session('allow_public') == 1)
+	if (app::session('allow_public'))
 	{
 		echo '<li>'. anchor('/api/json/'. $user_id , 'JSON', array('target'=>'_blank')) .'</li>';
 		echo '<li>'. anchor('/api/xml/'. $user_id, 'XML', array('target'=>'_blank')) .'</li>';
@@ -27,9 +27,9 @@ echo app::div_open(array('id'=>'content-left'));
 	}
 	else
 	{		
-		echo '<li>'. anchor('/api/json/'. $user_id .'/'. $private_key, 'JSON', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. $private_key, 'XML', array('target'=>'_blank')) .'</li>';
-		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. $private_key, 'RSS', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/json/'. $user_id .'/'. app::session('private_key'), 'JSON', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/xml/'. $user_id .'/'. app::session('private_key'), 'XML', array('target'=>'_blank')) .'</li>';
+		echo '<li>'. anchor('/api/rss/'. $user_id.'/'. app::session('private_key'), 'RSS', array('target'=>'_blank')) .'</li>';
 	}
 	echo '</ul>';
 	
