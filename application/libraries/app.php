@@ -162,7 +162,7 @@ class App{
 		{
 				session_start();
 				$_SESSION['requested_url'] = self::get_current_url();
-				redirect('users/login');
+				redirect('/login');
 		}
 	}
 	
