@@ -44,7 +44,7 @@ $route['my_account'] = 'users/my_account';
 $route['change_password'] = 'users/change_password';
 $route['my_account/(:num)'] = "users/my_account/$1";
 $route['default_controller'] = "beta";
-$route['404_override'] = '';
+$route['404_override'] = 'error/error_404';
 
 /* End of file routes.php */
 /* Location: ./application/config/routes.php */

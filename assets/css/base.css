@@ -47,6 +47,17 @@ a
 Message
 ****************************************************/
 
+#simple-message-wrapper
+{
+	padding:10px 20px 30px 20px;
+}
+
+#simple-message-wrapper h2
+{
+	font-weight:normal;
+	color:#198AB1;
+}
+
 #message
 {
 	background-color:#f2f2f2;
