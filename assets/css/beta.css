@@ -68,3 +68,11 @@ h3
 {
 	width:600px;
 }
+
+.gradient-button
+{
+	
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#222), to(#000));
+	background: -moz-linear-gradient(center top , #222 0pt, #000 100%) repeat scroll 0 0 transparent;
+	border-color:#333;
+}

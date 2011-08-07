@@ -206,8 +206,8 @@ input#url
 #add-rownd-button
 {
 	background-color:#666;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
-	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#000));
+	background: -moz-linear-gradient(center top , #333 0pt, #000 100%) repeat scroll 0 0 transparent;
 	border:1px solid #333;
 	color: #fff;
 	margin-right: 12px;
@@ -389,8 +389,8 @@ ul#syndication-options, .add-to-rowndly-wrapper
 .gradient-button
 {
 	background-color:#666;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
-	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#000));
+	background: -moz-linear-gradient(center top , #333 0pt, #000 100%) repeat scroll 0 0 transparent;
 	border:1px solid #333;
 	color: #fff;
 	margin-right: 12px;
@@ -471,8 +471,8 @@ Rownds
 .inline-submit, .like-button
 {
 	background-color:#666;
-	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#666), to(#000));
-	background: -moz-linear-gradient(center top , #666 0pt, #000 100%) repeat scroll 0 0 transparent;
+	background: -webkit-gradient(linear, 0% 0%, 0% 100%, from(#333), to(#000));
+	background: -moz-linear-gradient(center top , #333 0pt, #000 100%) repeat scroll 0 0 transparent;
 	border:1px solid #333;
 	color: #fff;
     font-size: 11px;
