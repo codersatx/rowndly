@@ -84,9 +84,12 @@ class Rownds extends Auth_Controller{
 					array('class'=>'delete-link','rel'=>$rownd->id));
 				
 				$output = '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
+				$output .= '<div class="thumb"><a href="'.$rownd->url.'" target="_blank" class="rownd-link" rel="'.$rownd->id.'"><img src="http://open.thumbshots.org/image.aspx?url='.$rownd->url.'" border="0"/></a></div>';
 				$output .= anchor($rownd->url, character_limiter($rownd->title, 56), array('target'=>'_blank'));
 				$output .= app::div($rownd->url, array('class'=>'rownd-url'));
-				$output .= $edit . $delete .'</li>';
+				$output .= $edit . $delete;
+				$output .= '<div class="clearfix"></div>';
+				$output .= '</li>';
 				$this->output->set_content_type('application/json')
 							 ->set_output(json_encode(array('status'=>'ok','output'=>$output)));	
 			}
