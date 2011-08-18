@@ -62,10 +62,18 @@ class Migrate extends Public_Controller{
 				$class = ucfirst(str_replace('.php', '', $class));
 				include_once('application/migrations/'.$file);
 				$o = new $class();
-				$messages[] = $o->up();
-				unset($o);
-				$this->_set_migration_version($version);
-				$migration_version = $version; 
+				if (method_exists($o, 'up'))
+				{
+					$messages[] = $o->up();
+					unset($o);
+					$this->_set_migration_version($version);
+					$migration_version = $version; 
+				}
+				else
+				{
+					$messages[] = 'Error: The up method was not found in the migration: '. $class;
+				}
+				
 			}
 		}
 		$messages[] = 'Up to date at version: '. $migration_version;
@@ -106,9 +114,18 @@ class Migrate extends Public_Controller{
 					$class = ucfirst(str_replace('.php', '', $class));
 					include_once('application/migrations/'.$file);
 					$o = new $class();
-					$messages[] = $o->down();
-					unset($o);
-					$this->_set_migration_version($to_version);
+					
+					if (method_exists($o, 'down'))
+					{
+						$messages[] = $o->down();
+						unset($o);
+						$this->_set_migration_version($to_version);
+					}
+					else
+					{
+						$messages[] = 'Error: The down method was not found in the migration: '. $class;
+					}
+				
 				}
 		
 			}
