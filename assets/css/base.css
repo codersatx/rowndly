@@ -412,6 +412,12 @@ ul#syndication-options, .add-to-rowndly-wrapper
 	cursor:pointer;
 }
 
+
+.thumb
+{
+	float:left;
+	margin:0 20px 0 0;
+}
 /***************************************************
 Rownds
 ****************************************************/

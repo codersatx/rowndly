@@ -56,8 +56,9 @@ if (isset($rownds) and is_array($rownds))
 				array('class'=>'delete-link','rel'=>$rownd->id));
 			
 			echo '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
+			echo '<div class="thumb"><a href="'.$rownd->url.'" target="_blank" class="rownd-link" rel="'.$rownd->id.'"><img src="http://open.thumbshots.org/image.aspx?url='.$rownd->url.'" border="0"/></a></div>';
 			echo '<div id="title_url_for_'. $rownd->id .'"/>';
-			echo anchor($rownd->url, character_limiter($rownd->title, 56), 
+			echo anchor($rownd->url, character_limiter($rownd->title, 46), 
 						array('id'=>'anchor_title_for_'.$rownd->id,'target'=>'_blank','class'=>'rownd-link','rel'=>$rownd->id));
 			echo app::div($rownd->url, array('class'=>'rownd-url', 'id'=>'anchor_url_for_'.$rownd->id));
 			if ($rownd->last_visited)
@@ -78,7 +79,9 @@ if (isset($rownds) and is_array($rownds))
 			<input type="submit" value="Save" class="inline-submit"/>
 			</form>';
 			echo $edit; 
-			echo $delete .'</li>';
+			echo $delete;
+			echo '<div class="clearfix"></div>';
+			echo '</li>';
 		}
 		echo '</ul>';
 }

@@ -38,5 +38,6 @@
 	</div>
 	
 	<div id="footer">rowndly - &copy; 2011 - agevio</div>
+	<a href="http://www.thumbshots.com" target="_blank" title="Thumbnails Screenshots by Thumbshots">Thumbnail Screenshots by Thumbshots</a>
 </body>
 </html>
