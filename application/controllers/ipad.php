@@ -44,6 +44,12 @@ class Ipad extends Public_Controller{
 		$values->sort_order = $order;
 		$values->title  = $this->_get_page_title($values->url);
 		$result = $this->rownd->save($values);
+		if ($result)
+		{
+			$this->output
+			    ->set_content_type('text/plain')
+			    ->set_output('Success');
+		}
 	}
 	
 	//------------------------------------------------------------------------------------
