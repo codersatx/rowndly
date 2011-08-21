@@ -31,7 +31,7 @@ class Ipad extends Public_Controller{
 	 * @param string $url The base url
 	 * @param string $path Everything past the base url
 	 */
-	public function post($user_id, $url, $path)
+	public function post($user_id, $url, $path = NULL)
 	{
 		$path = str_replace('--', '/', $path);
 		$url = $url . $path;
