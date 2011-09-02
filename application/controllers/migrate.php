@@ -2,6 +2,9 @@
 /**
  * Handles database migrations.
  *  
+ * Inspired by the work of cloudmanic and Phil Sturgeon on CodeIgniter Migrations
+ * https://github.com/anaxamaxan/codeigniter-migrations/
+ *
  * @author Alex Garcia
  */
 class Migrate extends Public_Controller{
