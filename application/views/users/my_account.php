@@ -60,6 +60,12 @@ echo app::div_open(array('class'=>'form-row'));
 echo app::div_close();
 
 echo app::div_open(array('class'=>'form-row'));
+	echo form_label('Show Thumbnails');
+	echo form_checkbox(array('name'=>'show_thumbnails', 'value'=>'1', 'checked'=>$user->show_thumbnails));
+	echo app::div('Show or hide thumbnail previews.', array('class'=>'input-description'));
+echo app::div_close();
+
+echo app::div_open(array('class'=>'form-row'));
 	echo form_submit('submit','Save', 'class="gradient-button"');
 echo app::div_close();
 

@@ -127,6 +127,11 @@ class Users extends Public_Controller{
 			{
 				$values->allow_public = FALSE;
 			}
+
+			if ( ! isset($values->show_thumbnails))
+			{
+				$values->show_thumbnails = FALSE;
+			}
 			$values->updated_at = date('Y-m-d h:i:s');
 			$values->id = $user->id;
 	

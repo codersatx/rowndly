@@ -56,7 +56,17 @@ if (isset($rownds) and is_array($rownds))
 				array('class'=>'delete-link','rel'=>$rownd->id));
 			
 			echo '<li class="ui-state-default" id="rownd_'. $rownd->id .'">';
-			echo '<div class="thumb"><a href="'.$rownd->url.'" target="_blank" class="rownd-link" rel="'.$rownd->id.'"><img src="http://open.thumbshots.org/image.aspx?url='.$rownd->url.'" border="0"/></a></div>';
+
+			if (app::session('show_thumbnails'))
+			{
+
+				echo '<div class="thumb">';
+				echo '<a href="'.$rownd->url.'" target="_blank" class="rownd-link" rel="'.$rownd->id.'">';
+				echo '<img src="http://open.thumbshots.org/image.aspx?url='.$rownd->url.'" border="0"/>';
+				echo '</a>';
+				echo '</div>';
+			}
+			
 			echo '<div id="title_url_for_'. $rownd->id .'"/>';
 			echo anchor($rownd->url, character_limiter($rownd->title, 46), 
 						array('id'=>'anchor_title_for_'.$rownd->id,'target'=>'_blank','class'=>'rownd-link','rel'=>$rownd->id));
