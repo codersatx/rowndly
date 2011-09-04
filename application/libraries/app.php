@@ -221,6 +221,14 @@ class App{
 			return (isset($_SERVER['HTTP_X_REQUESTED_WITH']) && ($_SERVER['HTTP_X_REQUESTED_WITH'] == 'XMLHttpRequest'));
 		}
 	}
+
+	//---------------------------------------------------------------------------
+
+	public static function is_ipad()
+	{
+		return (bool) strpos($_SERVER['HTTP_USER_AGENT'],'iPad');
+	}
+
 }
 app::init();
 
