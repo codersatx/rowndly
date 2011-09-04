@@ -266,6 +266,7 @@ class Rownds extends Auth_Controller{
 
 	public function bookmarklet()
 	{
-		$this->render();
+		$data['head_title'] = 'Add to Rownds';
+		$this->render($data);
 	}
 }
