@@ -38,7 +38,9 @@ echo app::div_open(array('id'=>'content-left'));
 
 	if (app::is_ipad())
 	{
-		echo anchor('rownds/bookmarklet', 'iPad Bookmarklet Instructions', 'class="add-to-rowndly-link"');	
+		echo app::div_open(array('class'=>'add-to-rowndly-link'));
+		echo anchor('rownds/bookmarklet', 'iPad Instructions');	
+		echo app::div_close();
 	}
 	else
 	{
