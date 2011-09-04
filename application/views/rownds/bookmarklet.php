@@ -4,9 +4,9 @@
 javascript:javascript:(function(){var%20url%20=%20location.href;window.open('http://rowndly.com/post.php?url='%20+%20encodeURIComponent(url)%20+%20'&','_blank','location=0,menubar=no,height=130,width=650,toolbar=no,scrollbars=no,status=no');})();
 </textarea>
 
-To add this bookmarklet to your iPad bookmars bar follow these steps:
+<h3>To add this bookmarklet to your iPad bookmars bar follow these steps:</h3>
 <ol>
-	<li>Bookmark this page./li>
+	<li>Bookmark this page.</li>
 	<li>Copy and Paste the code in the textbox above.</li>
 	<li>Click the bookmark icon in the browser bar above.</li>
 	<li>Navigation to bookmarks and then the bookmarks bar list</li>
