@@ -263,4 +263,9 @@ class Rownds extends Auth_Controller{
 		
 		return $page_title;
 	}
+
+	public function bookmarklet()
+	{
+		$this->render();
+	}
 }
